@@ -20,10 +20,11 @@ class DiscipleClass:
 
     def chooseAndDisplayDisciple(language):
         import json
+        from discipleClass import DiscipleClass
         from menuClass import MenuClass
         if (language == "EN"):
             print("Choose disciple by typing in his Id from list below.")
-            MenuClass.displayAllDisciples(language)
+            DiscipleClass.displayAllDisciples(language)
             choose = str(input())
             with open('../../data/data.txt') as json_file:
                 data = json.load(json_file)
@@ -40,10 +41,10 @@ class DiscipleClass:
                     print('')
             print("Type in anything to return to menu")
             input()
-            return menu(language)
+            return MenuClass.menu(language)
         if (language == "PL"):
             print("Wybierz ucznia poprzez wpisanie jego Id z listy ponizej.")
-            MenuClass.displayAllDisciples(language)
+            DiscipleClass.displayAllDisciples(language)
             choose = str(input())
             with open('../../data/data.txt') as json_file:
                 data = json.load(json_file)
@@ -60,7 +61,7 @@ class DiscipleClass:
                     print('')
             print("Wprowadz cokolwiek zeby wrocic do menu.")
             input()
-            return menu(language)
+            return MenuClass.menu(language)
 
     def addDisciple(language):
         import json
