@@ -39,6 +39,9 @@ class DiscipleClass:
                     for ii in i['marks']:
                         print('  ' + ii, end=", ")
                     print('')
+                print("Notices:")
+                for i in data['disciples'][int(choose)]['notices']:
+                    print(i)
             print("Type in anything to return to menu")
             input()
             return MenuClass.menu(language)
@@ -59,6 +62,9 @@ class DiscipleClass:
                     for ii in i['marks']:
                         print('  ' + ii, end=", ")
                     print('')
+                print("Uwagi:")
+                for i in data['disciples'][int(choose)]['notices']:
+                    print(i)
             print("Wprowadz cokolwiek zeby wrocic do menu.")
             input()
             return MenuClass.menu(language)
@@ -134,6 +140,7 @@ class DiscipleClass:
                 print("3. Add subject to disciple.")
                 print("4. Edit disciple\'s subject.")
                 print("5. Remove disciple\'s subject.")
+                print("6. Add notice to disciple.")
                 choose = str(input())
                 if (choose == "0"):
                     return MenuClass.menu(language)
@@ -147,6 +154,10 @@ class DiscipleClass:
                     SubjectClass.editSubject(language, disciple['id'])
                 elif (choose == "5"):
                     SubjectClass.removeSubject(language, disciple['id'])
+                elif (choose == "6"):
+                    print("Type in notice.")
+                    notice=str(input())
+                    disciple['notices'].append(str(notice))
                 else:
                     print('You had a typo. Try again!')
                     return DiscipleClass.editDisciple(language)
@@ -180,6 +191,7 @@ class DiscipleClass:
                 print("3. Dodaj przedmiot do wybranego ucznia.")
                 print("4. Edytuj przedmiot wybranego ucznia.")
                 print("5. Usun przedmiot wybranego ucznia.")
+                print("6. Dodaj uwage do ucznia.")
                 choose = str(input())
                 if (choose == "0"):
                     return MenuClass.menu(language)
@@ -193,6 +205,10 @@ class DiscipleClass:
                     SubjectClass.editSubject(language, disciple['id'])
                 elif (choose == "5"):
                     SubjectClass.removeSubject(language, disciple['id'])
+                elif (choose == "6"):
+                    print("Wpisz uwage.")
+                    notice=str(input())
+                    disciple['notices'].append(str(notice))
                 else:
                     print('Miales literowke. Sproboj ponownie!')
                     return DiscipleClass.editDisciple(language)
@@ -234,3 +250,4 @@ class DiscipleClass:
                     number = number + 1
                 json.dump(data, outfile)
             return MenuClass.menu(language)
+

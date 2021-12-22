@@ -6,7 +6,7 @@
          "lastname":"Normik",
          "subjects":[
             {
-            "id":"0",
+               "id":"0",
                "name":"mathematics",
                "marks":[
                   "3",
@@ -16,7 +16,7 @@
                ]
             },
             {
-            "id":"1",
+               "id":"1",
                "name":"chemistry",
                "marks":[
                   "3",
@@ -33,7 +33,7 @@
          "lastname":"Rambodula",
          "subjects":[
             {
-            "id":"0",
+               "id":"0",
                "name":"mathematics",
                "marks":[
                   "3",
@@ -43,7 +43,7 @@
                ]
             },
             {
-            "id":"1",
+               "id":"1",
                "name":"chemistry",
                "marks":[
                   "3",
@@ -53,14 +53,14 @@
                ]
             },
             {
-            "id":"2",
+               "id":"2",
                "name":"Matematyka",
                "marks":[
 
                ]
             },
             {
-                "id":"3",
+               "id":"3",
                "name":"Biologia",
                "marks":[
 
