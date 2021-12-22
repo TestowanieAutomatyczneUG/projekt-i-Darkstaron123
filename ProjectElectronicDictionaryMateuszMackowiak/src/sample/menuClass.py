@@ -4,7 +4,7 @@ class MenuClass:
         from menuClass import MenuClass
         if (language == 'PL'):
             print('Czesc, zalogowales sie do dziennika. Wybierz opcje, poprzez wpisanie jej numeru:')
-            print('0. Wybierz i wyswietl ucznia.')
+            print('0. Wybierz i wyswietl ucznia, z obliczona srednia ocen(statystyki).')
             print('1. Dodanie ucznia.')
             print('2. Edycja ucznia.')
             print('3. Usuniecie ucznia.')
@@ -26,7 +26,7 @@ class MenuClass:
                 return menu(language)
         elif (language == 'EN'):
             print('Hello, you logged in electronic dictionary. Choose option, by typing in it\'s number:')
-            print('0. Choose and show disciple')
+            print('0. Choose and show disciple, with mark averages(statistics)')
             print('1. Add disciple')
             print('2. Edit disciple')
             print('3. Delete disciple')
