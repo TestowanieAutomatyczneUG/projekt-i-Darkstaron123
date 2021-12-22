@@ -118,7 +118,7 @@ class SubjectClass:
 
     def removeSubject(language, discipleId):
         import json
-        from menuClass import MenuClass
+        from discipleClass import DiscipleClass
         if (language == "EN"):
             print("You entered process of removing subject. Choose subject by typing in his Id from list below.")
             with open('../../data/data.txt') as json_file:
@@ -134,7 +134,7 @@ class SubjectClass:
                     i['id'] = str(number)
                     number = number + 1
                 json.dump(data, outfile)
-            return MenuClass.menu(language)
+            return DiscipleClass.editDisciple(language)
         if (language == "PL"):
             print("Weszles w proces usuwania przedmiotu. Wybierz przedmiot poprzez wpisanie jego Id z listy ponizej,")
             with open('../../data/data.txt') as json_file:
@@ -150,4 +150,4 @@ class SubjectClass:
                     i['id'] = str(number)
                     number = number + 1
                 json.dump(data, outfile)
-            return MenuClass.menu(language)
+            return DiscipleClass.editDisciple(language)
