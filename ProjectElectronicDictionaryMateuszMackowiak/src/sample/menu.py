@@ -9,12 +9,6 @@ def menu(language):
         print('1. Dodanie ucznia.')
         print('2. Edycja ucznia.')
         print('3. Usuniecie ucznia.')
-        #print('2.1. Dopisanie przedmiotu do ucznia.')
-        #print('2.2. Edycja przedmiotu ucznia.')
-        #print('2.3. Usuwanie przedmiotu ucznia.')
-        #print('2.2.1. Dopisanie oceny do wybranego przedmiotu ucznia.')
-        #print('2.2.2. Edycja wybranej oceny wybranego przedmiotu ucznia.')
-        #print('2.2.3. Usuwanie wybranej oceny z wybranego przedmiotu ucznia.')#additional option
         print('4. Wyloguj sie.')
         choose=str(input())
         if(choose=="0"):
@@ -34,12 +28,6 @@ def menu(language):
         print('1. Add disciple')
         print('2. Edit disciple')
         print('3. Delete disciple')
-        #print('2.1. Add subject to disciple')
-        #print('2.2. Edit disciple\'s subject')
-        #print('2.3. Delete disciple\'s subject')
-        #print('2.2.1. Add mark to disciple\'s subject')
-        #print('2.2.2. Edit mark of disciple\'s subject')
-        #print('2.2.3. Delete mark from disciple\'s subject')#additional option
         print('4. Log Out')
         choose = str(input())
         if (choose == "0"):
