@@ -11,6 +11,7 @@ class MenuClass:
             print('4. Importuj baze danych z pliku csv')
             print('5. Eksortuj baze danych do pliku csv')
             print('6. Wyloguj sie.')
+            print('7. Zrob kopie bazy danych z pliku csv(dataCopy.csv).')
             if (choose == None):
                 choose = str(input())
             if (choose == "0"):
@@ -27,6 +28,8 @@ class MenuClass:
                 MenuClass.exportDatabaseToCSV(language)
             elif (choose == "6"):
                 MenuClass.logOut(language)
+            elif (choose == "7"):
+                MenuClass.copyDatabaseToCSV(language)
             else:
                 print('You had a typo. Try again!')
                 return MenuClass.menu(language)
@@ -39,6 +42,7 @@ class MenuClass:
             print('4. Import database from csv file')
             print('5. Export database to csv file')
             print('6. Log Out')
+            print('7. Make a copy of database(dataCopy.csv).')
             if(choose==None):
                 choose = str(input())
             if (choose == "0"):
@@ -55,6 +59,8 @@ class MenuClass:
                 MenuClass.exportDatabaseToCSV(language)
             elif (choose == "6"):
                 MenuClass.logOut(language)
+            elif (choose == "7"):
+                MenuClass.copyDatabaseToCSV(language)
             else:
                 print('You had a typo. Try again!')
                 return MenuClass.menu(language)
@@ -74,6 +80,17 @@ class MenuClass:
             with open('../../data/data.txt') as json_file:
                 data = json.load(json_file)
             with open('../../data/data.csv', 'w') as outfile:
+                json.dump(data, outfile)
+        except:
+            pass
+        return MenuClass.menu(language)
+    def copyDatabaseToCSV(language):
+        from menuClass import MenuClass
+        import json
+        try:
+            with open('../../data/data.csv') as json_file:
+                data = json.load(json_file)
+            with open('../../data/dataCopy.csv', 'w') as outfile:
                 json.dump(data, outfile)
         except:
             pass
