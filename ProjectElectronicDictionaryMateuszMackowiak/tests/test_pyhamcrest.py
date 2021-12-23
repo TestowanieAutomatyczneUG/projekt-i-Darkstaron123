@@ -15,7 +15,7 @@ from menuClass import MenuClass
 class PyHamcrest_calculateMarkAverageFromDisciple_Test(unittest.TestCase):
 
     def setUp(self):
-        self.temp = DiscipleClass
+        self.temp = DiscipleClass()
 
     def test_calculateMarkAverageFromDisciple_is_float(self):
         import json
@@ -93,4 +93,4 @@ class PyHamcrest_calculateMarkAverageFromDisciple_Test(unittest.TestCase):
             data = json.load(json_file)
             assert_that(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0])),is_not(memoryview))
     def test_choose_language(self):
-        assert_that(MenuClass.chooseLanguage("EN"),IsEnglishLanguageMatcher("EN"))#usage of custom matcher
+        assert_that(MenuClass().chooseLanguage("EN"),IsEnglishLanguageMatcher("EN"))#usage of custom matcher

@@ -1,5 +1,5 @@
 class DiscipleClass:
-    def displayAllDisciples(language):
+    def displayAllDisciples(self,language):
         import json
         if (language == "EN"):
             try:
@@ -24,13 +24,13 @@ class DiscipleClass:
             except:
                 pass
 
-    def chooseAndDisplayDisciple(language,choose=None):
+    def chooseAndDisplayDisciple(self,language,choose=None):
         import json
         from discipleClass import DiscipleClass
         from menuClass import MenuClass
         if (language == "EN"):
             print("Choose disciple by typing in his Id from list below.")
-            DiscipleClass.displayAllDisciples(language)
+            DiscipleClass().displayAllDisciples(language)
             choose = str(input())
             with open('../../data/data.txt') as json_file:
                 data = json.load(json_file)
@@ -38,7 +38,7 @@ class DiscipleClass:
                     data['disciples'][int(choose)]
                 except:
                     print("No disciple with provided id.")
-                    return MenuClass.menu(language)
+                    return MenuClass().menu(language)
                 # print(data['disciples'][int(choose)])
                 print("Id:" + data['disciples'][int(choose)]['id'])
                 print("First Name:" + data['disciples'][int(choose)]['firstname'])
@@ -53,19 +53,19 @@ class DiscipleClass:
                             for ii in i['marks']:
                                 print('  ' + ii, end=", ")
                             print('Average from marks of this subject:', end="")
-                            print(str(DiscipleClass.calculateMarkAverageFromSubject(i['marks'])))
+                            print(str(DiscipleClass().calculateMarkAverageFromSubject(i['marks'])))
                         print('')
                     print("Average from averages of all subjects of this disciple:", end="")
-                    print(str(DiscipleClass.calculateMarkAverageFromDisciple(data['disciples'][int(choose)])))
-                print("Notices(Quantity: "+str(DiscipleClass.countNumberOfNotices(data['disciples'][int(choose)]['notices']))+"):")
+                    print(str(DiscipleClass().calculateMarkAverageFromDisciple(data['disciples'][int(choose)])))
+                print("Notices(Quantity: "+str(DiscipleClass().countNumberOfNotices(data['disciples'][int(choose)]['notices']))+"):")
                 for i in data['disciples'][int(choose)]['notices']:
                     print(i)
             print("Type in anything to return to menu")
             input()
-            return MenuClass.menu(language)
+            return MenuClass().menu(language)
         if (language == "PL"):
             print("Wybierz ucznia poprzez wpisanie jego Id z listy ponizej.")
-            DiscipleClass.displayAllDisciples(language)
+            DiscipleClass().displayAllDisciples(language)
             choose = str(input())
             with open('../../data/data.txt') as json_file:
                 data = json.load(json_file)
@@ -73,7 +73,7 @@ class DiscipleClass:
                     data['disciples'][int(choose)]
                 except:
                     print("Brak ucznia o podanym id.")
-                    return MenuClass.menu(language)
+                    return MenuClass().menu(language)
                 # print(data['disciples'][int(choose)])
                 print("Id:" + data['disciples'][int(choose)]['id'])
                 print("Pierwsze Imie:" + data['disciples'][int(choose)]['firstname'])
@@ -87,18 +87,18 @@ class DiscipleClass:
                             for ii in i['marks']:
                                 print('  ' + ii, end=", ")
                             print('Srednia z ocen tego przedmiotu:', end="")
-                            print(str(DiscipleClass.calculateMarkAverageFromSubject(i['marks'])))
+                            print(str(DiscipleClass().calculateMarkAverageFromSubject(i['marks'])))
                         print('')
                     print("Srednia z ocen wszystkich przedmiotow tego ucznia:",end="")
-                    print(str(DiscipleClass.calculateMarkAverageFromDisciple(data['disciples'][int(choose)])))
-                print("Uwagi(Ilosc: "+str(DiscipleClass.countNumberOfNotices(data['disciples'][int(choose)]['notices']))+"):")
+                    print(str(DiscipleClass().calculateMarkAverageFromDisciple(data['disciples'][int(choose)])))
+                print("Uwagi(Ilosc: "+str(DiscipleClass().countNumberOfNotices(data['disciples'][int(choose)]['notices']))+"):")
                 for i in data['disciples'][int(choose)]['notices']:
                     print(i)
             print("Wprowadz cokolwiek zeby wrocic do menu.")
             input()
-            return MenuClass.menu(language)
+            return MenuClass().menu(language)
 
-    def addDisciple(language):
+    def addDisciple(self,language):
         import json
         from menuClass import MenuClass
         if (language == "EN"):
@@ -120,7 +120,7 @@ class DiscipleClass:
                     }
                 )
                 json.dump(data, outfile)
-            return MenuClass.menu(language)
+            return MenuClass().menu(language)
         if (language == "PL"):
             print("Weszles w proces dodawania ucznia.")
             print("Wpisz jego pierwsze imie.")
@@ -139,8 +139,8 @@ class DiscipleClass:
                     }
                 )
                 json.dump(data, outfile)
-            return MenuClass.menu(language)
-    def editDisciple(language):
+            return MenuClass().menu(language)
+    def editDisciple(self,language):
         import json
         from menuClass import MenuClass
         from discipleClass import DiscipleClass
@@ -148,7 +148,7 @@ class DiscipleClass:
         try:
             if (language == "EN"):
                 print("You entered process of editing disciple. Choose disciple by typing in his Id from list below.")
-                DiscipleClass.displayAllDisciples(language)
+                DiscipleClass().displayAllDisciples(language)
                 choose = str(input())
                 with open('../../data/data.txt') as json_file:
                     data = json.load(json_file)
@@ -156,7 +156,7 @@ class DiscipleClass:
                         data['disciples'][int(choose)]
                     except:
                         print("No disciple with provided id.")
-                        return MenuClass.menu(language)
+                        return MenuClass().menu(language)
                     disciple = data['disciples'][int(choose)]
                     print("=>Choosen disciple.<=")
                     print("Id:" + disciple['id'])
@@ -179,32 +179,32 @@ class DiscipleClass:
                     print("6. Add notice to disciple.")
                     choose = str(input())
                     if (choose == "0"):
-                        return MenuClass.menu(language)
+                        return MenuClass().menu(language)
                     elif (choose == "1"):
                         disciple['firstname'] = str(input())
                     elif (choose == "2"):
                         disciple['lastname'] = str(input())
                     elif (choose == "3"):
-                        SubjectClass.addSubject(language, disciple['id'])
+                        SubjectClass().addSubject(language, disciple['id'])
                     elif (choose == "4"):
-                        SubjectClass.editSubject(language, disciple['id'])
+                        SubjectClass().editSubject(language, disciple['id'])
                     elif (choose == "5"):
-                        SubjectClass.removeSubject(language, disciple['id'])
+                        SubjectClass().removeSubject(language, disciple['id'])
                     elif (choose == "6"):
                         print("Type in notice.")
                         notice = str(input())
                         disciple['notices'].append(str(notice))
                     else:
                         print('You had a typo. Try again!')
-                        return DiscipleClass.editDisciple(language)
+                        return DiscipleClass().editDisciple(language)
 
                 with open('../../data/data.txt', 'w') as outfile:
                     data['disciples'][int(disciple['id'])] = disciple
                     json.dump(data, outfile)
-                return DiscipleClass.editDisciple(language)
+                return DiscipleClass().editDisciple(language)
             if (language == "PL"):
                 print("Weszles w proces edytowania ucznia. Wybierz ucznia poprzez wpisanie jego Id z listy ponizej.")
-                DiscipleClass.displayAllDisciples(language)
+                DiscipleClass().displayAllDisciples(language)
                 choose = str(input())
                 with open('../../data/data.txt') as json_file:
                     data = json.load(json_file)
@@ -212,7 +212,7 @@ class DiscipleClass:
                         data['disciples']
                     except:
                         print("Brak ucznia o podanym id.")
-                        return MenuClass.menu(language)
+                        return MenuClass().menu(language)
                     disciple = data['disciples'][int(choose)]
                     print("=>Wybrany uczen.<=")
                     print("Id:" + disciple['id'])
@@ -235,39 +235,39 @@ class DiscipleClass:
                     print("6. Dodaj uwage do ucznia.")
                     choose = str(input())
                     if (choose == "0"):
-                        return MenuClass.menu(language)
+                        return MenuClass().menu(language)
                     elif (choose == "1"):
                         disciple['firstname'] = str(input())
                     elif (choose == "2"):
                         disciple['lastname'] = str(input())
                     elif (choose == "3"):
-                        SubjectClass.addSubject(language, disciple['id'])
+                        SubjectClass().addSubject(language, disciple['id'])
                     elif (choose == "4"):
-                        SubjectClass.editSubject(language, disciple['id'])
+                        SubjectClass().editSubject(language, disciple['id'])
                     elif (choose == "5"):
-                        SubjectClass.removeSubject(language, disciple['id'])
+                        SubjectClass().removeSubject(language, disciple['id'])
                     elif (choose == "6"):
                         print("Wpisz uwage.")
                         notice = str(input())
                         disciple['notices'].append(str(notice))
                     else:
                         print('Miales literowke. Sproboj ponownie!')
-                        return DiscipleClass.editDisciple(language)
+                        return DiscipleClass().editDisciple(language)
 
                 with open('../../data/data.txt', 'w') as outfile:
                     data['disciples'][int(disciple['id'])] = disciple
                     json.dump(data, outfile)
-                return DiscipleClass.editDisciple(language)
+                return DiscipleClass().editDisciple(language)
         except:
-            return MenuClass.menu(language)
+            return MenuClass().menu(language)
 
-    def removeDisciple(language):
+    def removeDisciple(self,language):
         import json
         from menuClass import MenuClass
         from discipleClass import DiscipleClass
         if (language == "EN"):
             print("You entered process of removing disciple. Choose disciple by typing in his Id from list below.")
-            DiscipleClass.displayAllDisciples(language)
+            DiscipleClass().displayAllDisciples(language)
             choose = str(input())
             try:
                 with open('../../data/data.txt') as json_file:
@@ -281,13 +281,13 @@ class DiscipleClass:
                             number = number + 1
                         json.dump(data, outfile)
                 else:
-                    return MenuClass.menu(language)
+                    return MenuClass().menu(language)
             except:
                 raise Exception("Wrong Input.")
-            return MenuClass.menu(language)
+            return MenuClass().menu(language)
         if (language == "PL"):
             print("Weszles w proces usuwania ucznia. Wybierz ucznia poprzez wpisanie jego Id z listy ponizej,")
-            DiscipleClass.displayAllDisciples(language)
+            DiscipleClass().displayAllDisciples(language)
             choose=str(input())
             try:
                 with open('../../data/data.txt') as json_file:
@@ -301,12 +301,12 @@ class DiscipleClass:
                             number = number + 1
                         json.dump(data, outfile)
                 else:
-                    return MenuClass.menu(language)
+                    return MenuClass().menu(language)
             except:
                 raise Exception("Wrong Input.")
-            return MenuClass.menu(language)
+            return MenuClass().menu(language)
 
-    def calculateMarkAverageFromDisciple(disciple):
+    def calculateMarkAverageFromDisciple(self,disciple):
         if (len(disciple['subjects']) > 0):
             sumSubject = 0
             quantitySubject = 0
@@ -323,7 +323,7 @@ class DiscipleClass:
             averageSubject = float(sumSubject) / float(quantitySubject)
         return averageSubject
 
-    def calculateMarkAverageFromSubject(marks):
+    def calculateMarkAverageFromSubject(self,marks):
         if (len(marks) > 0):
             sumMark = 0
             quantityMark = 0
@@ -332,6 +332,6 @@ class DiscipleClass:
                 quantityMark = quantityMark + 1
             averageMark = float(sumMark) / float(quantityMark)
             return averageMark
-    def countNumberOfNotices(notices):
+    def countNumberOfNotices(self,notices):
         return len(notices)
 

@@ -4,7 +4,7 @@ from discipleClass import DiscipleClass
 class Assertpy_calculateMarkAverageFromDisciple_Test(unittest.TestCase):
 
     def setUp(self):
-        self.temp = DiscipleClass
+        self.temp = DiscipleClass()
 
     def test_calculateMarkAverageFromSubject_is_float(self):
         import json

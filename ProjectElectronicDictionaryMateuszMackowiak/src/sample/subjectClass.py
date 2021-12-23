@@ -1,5 +1,5 @@
 class SubjectClass:
-    def addSubject(language, discipleId):
+    def addSubject(self,language, discipleId):
         import json
         from discipleClass import DiscipleClass
         if (language == "EN"):
@@ -35,7 +35,7 @@ class SubjectClass:
                 json.dump(data, outfile)
             return DiscipleClass.editDisciple(language)
 
-    def editSubject(language, discipleId):
+    def editSubject(self,language, discipleId):
         import json
         from discipleClass import DiscipleClass
         from markClass import MarkClass
@@ -62,7 +62,7 @@ class SubjectClass:
             print("4. Remove disciple\'s mark.")
             choose = str(input())
             if (choose == "0"):
-                return DiscipleClass.editDisciple(language)
+                return DiscipleClass().editDisciple(language)
             elif (choose == "1"):
                 data['disciples'][int(discipleId)]['subjects'][int(typedId)]['name'] = str(input())
             elif (choose == "2"):
@@ -73,10 +73,10 @@ class SubjectClass:
                 MarkClass.removeMark(language, discipleId, typedId)
             else:
                 print('You had a typo. Try again!')
-                return editSubject(language, discipleId)
+                return MarkClass().editSubject(language, discipleId)
             with open('../../data/data.txt', 'w') as outfile:
                 json.dump(data, outfile)
-            return DiscipleClass.editDisciple(language)
+            return DiscipleClass().editDisciple(language)
         if (language == "PL"):
             print("Weszles w proces edytowania przedmiotu ucznia.")
             with open('../../data/data.txt') as json_file:
@@ -100,7 +100,7 @@ class SubjectClass:
             print("4. Usun ocene w wybranym przedmiocie.")
             choose = str(input())
             if (choose == "0"):
-                return DiscipleClass.editDisciple(language)
+                return DiscipleClass().editDisciple(language)
             elif (choose == "1"):
                 data['disciples'][int(discipleId)]['subjects'][int(typedId)]['name'] = str(input())
             elif (choose == "2"):
@@ -111,12 +111,12 @@ class SubjectClass:
                 MarkClass.removeMark(language, discipleId, typedId)
             else:
                 print('Miales literowke. Sproboj ponownie!')
-                return editSubject(language, discipleId)
+                return MarkClass().editSubject(language, discipleId)
             with open('../../data/data.txt', 'w') as outfile:
                 json.dump(data, outfile)
-            return DiscipleClass.editDisciple(language)
+            return DiscipleClass().editDisciple(language)
 
-    def removeSubject(language, discipleId):
+    def removeSubject(self,language, discipleId):
         import json
         from discipleClass import DiscipleClass
         if (language == "EN"):
@@ -137,10 +137,10 @@ class SubjectClass:
                             number = number + 1
                         json.dump(data, outfile)
                 else:
-                    return DiscipleClass.editDisciple(language)
+                    return DiscipleClass().editDisciple(language)
             except:
                 print("Wrong input.")
-            return DiscipleClass.editDisciple(language)
+            return DiscipleClass().editDisciple(language)
         if (language == "PL"):
             print("Weszles w proces usuwania przedmiotu. Wybierz przedmiot poprzez wpisanie jego Id z listy ponizej,")
             with open('../../data/data.txt') as json_file:
@@ -159,7 +159,7 @@ class SubjectClass:
                             number = number + 1
                         json.dump(data, outfile)
                 else:
-                    return DiscipleClass.editDisciple(language)
+                    return DiscipleClass().editDisciple(language)
             except:
                 print("Zly Input.")
-            return DiscipleClass.editDisciple(language)
+            return DiscipleClass().editDisciple(language)

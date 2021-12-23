@@ -1,5 +1,5 @@
 class MenuClass:
-    def menu(language,choose=None):
+    def menu(self,language,choose=None):
         from discipleClass import DiscipleClass
         from menuClass import MenuClass
         if (language == 'PL'):
@@ -15,24 +15,24 @@ class MenuClass:
             if (choose == None):
                 choose = str(input())
             if (choose == "0"):
-                DiscipleClass.chooseAndDisplayDisciple(language)
+                DiscipleClass().chooseAndDisplayDisciple(language)
             elif (choose == "1"):
-                DiscipleClass.addDisciple(language)
+                DiscipleClass().addDisciple(language)
             elif (choose == "2"):
-                DiscipleClass.editDisciple(language)
+                DiscipleClass().editDisciple(language)
             elif (choose == "3"):
-                DiscipleClass.removeDisciple(language)
+                DiscipleClass().removeDisciple(language)
             elif (choose == "4"):
-                MenuClass.importDatabaseFromCSV(language)
+                MenuClass().importDatabaseFromCSV(language)
             elif (choose == "5"):
-                MenuClass.exportDatabaseToCSV(language)
+                MenuClass().exportDatabaseToCSV(language)
             elif (choose == "6"):
-                MenuClass.logOut(language)
+                MenuClass().logOut(language)
             elif (choose == "7"):
-                MenuClass.copyDatabaseToCSV(language)
+                MenuClass().copyDatabaseToCSV(language)
             else:
                 print('You had a typo. Try again!')
-                return MenuClass.menu(language)
+                return MenuClass().menu(language)
         elif (language == 'EN'):
             print('Hello, you logged in electronic dictionary. Choose option, by typing in it\'s number:')
             print('0. Choose and show disciple, with mark averages(statistics)')
@@ -46,24 +46,24 @@ class MenuClass:
             if(choose==None):
                 choose = str(input())
             if (choose == "0"):
-                DiscipleClass.chooseAndDisplayDisciple(language)
+                DiscipleClass().chooseAndDisplayDisciple(language)
             elif (choose == "1"):
-                DiscipleClass.addDisciple(language)
+                DiscipleClass().addDisciple(language)
             elif (choose == "2"):
-                DiscipleClass.editDisciple(language)
+                DiscipleClass().editDisciple(language)
             elif (choose == "3"):
-                DiscipleClass.removeDisciple(language)
+                DiscipleClass().removeDisciple(language)
             elif (choose == "4"):
-                MenuClass.importDatabaseFromCSV(language)
+                MenuClass().importDatabaseFromCSV(language)
             elif (choose == "5"):
-                MenuClass.exportDatabaseToCSV(language)
+                MenuClass().exportDatabaseToCSV(language)
             elif (choose == "6"):
-                MenuClass.logOut(language)
+                MenuClass().logOut(language)
             elif (choose == "7"):
-                MenuClass.copyDatabaseToCSV(language)
+                MenuClass().copyDatabaseToCSV(language)
             else:
                 print('You had a typo. Try again!')
-                return MenuClass.menu(language)
+                return MenuClass().menu(language)
 
     def chooseLanguage(self,choose=None):
         if (choose == None):
@@ -73,7 +73,7 @@ class MenuClass:
         if(choose!="EN" and choose!="PL"):
             raise Exception("Wrong language inputed.")
         return choose
-    def exportDatabaseToCSV(language):
+    def exportDatabaseToCSV(self,language):
         from menuClass import MenuClass
         import json
         try:
@@ -83,8 +83,8 @@ class MenuClass:
                 json.dump(data, outfile)
         except:
             pass
-        return MenuClass.menu(language)
-    def copyDatabaseToCSV(language):
+        return MenuClass().menu(language)
+    def copyDatabaseToCSV(self,language):
         from menuClass import MenuClass
         import json
         try:
@@ -94,8 +94,8 @@ class MenuClass:
                 json.dump(data, outfile)
         except:
             pass
-        return MenuClass.menu(language)
-    def importDatabaseFromCSV(language):
+        return MenuClass().menu(language)
+    def importDatabaseFromCSV(self,language):
         from menuClass import MenuClass
         import json
         try:
@@ -105,8 +105,8 @@ class MenuClass:
                 json.dump(data, outfile)
         except:
             pass
-        return MenuClass.menu(language)
-    def logOut(language):
+        return MenuClass().menu(self,language)
+    def logOut(self,language):
         if(language=="PL"):
             print("Wylogowales sie!")
         if(language=="EN"):

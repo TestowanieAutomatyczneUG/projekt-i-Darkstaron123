@@ -13,7 +13,7 @@ from markClass import MarkClass
 
 class MenuClassTest(unittest.TestCase):
     def setUp(self):
-        self.temp = MenuClass
+        self.temp = MenuClass()
     #testing menu() function
     @patch('menuClass.MenuClass.menu')
     def test_menu_called(self, mock_function):
@@ -176,7 +176,7 @@ class MenuClassTest(unittest.TestCase):
 # log out===============================================================================================================
 class DiscipleClassTest(unittest.TestCase):
     def setUp(self):
-        self.temp = DiscipleClass
+        self.temp = DiscipleClass()
 
 # notices quantity from disciple========================================================================================
     def test_countNumberOfNotices_is_int(self):
@@ -449,7 +449,7 @@ class DiscipleClassTest(unittest.TestCase):
 
 class SubjectClassTest(unittest.TestCase):
     def setUp(self):
-        self.temp = SubjectClass
+        self.temp = SubjectClass()
 
     @patch('subjectClass.SubjectClass.addSubject')
     def test_addSubject_called(self, mock_function):
@@ -470,7 +470,7 @@ class SubjectClassTest(unittest.TestCase):
         self.assertTrue(mock_function.called)
 class MarkClassTest(unittest.TestCase):
     def setUp(self):
-        self.temp = MarkClass
+        self.temp = MarkClass()
 
     @patch('markClass.MarkClass.addMark')
     def test_addMark_called(self, mock_function):
