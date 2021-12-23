@@ -145,6 +145,8 @@ class MenuClassTest(unittest.TestCase):
 # log out===============================================================================================================
     def test_log_out_return_minus_one(self):
         self.assertEqual(MenuClass.logOut("EN"),-1)
+    def test_log_out_is_int(self):
+        self.assertEqual(type(MenuClass.logOut("EN")),int)
 # log out===============================================================================================================
 class DiscipleClassTest(unittest.TestCase):
     def setUp(self):
