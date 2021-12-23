@@ -141,6 +141,11 @@ class DiscipleClassTest(unittest.TestCase):
         with open('../data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertFalse(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0]))==dict)
+    def test_calculateMarkAverageFromDisciple_result_is_not_tuple(self):
+        import json
+        with open('../data/test_data.txt') as json_file:
+            data = json.load(json_file)
+            self.assertFalse(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0]))==tuple)
 
 # mark average =============================================================================================
 
