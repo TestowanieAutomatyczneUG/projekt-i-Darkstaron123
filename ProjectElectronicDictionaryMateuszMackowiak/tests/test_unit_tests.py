@@ -201,6 +201,11 @@ class DiscipleClassTest(unittest.TestCase):
         with open('../data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertNotEqual(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0])),'')
+    def test_calculateMarkAverageFromDisciple_result_is_correct(self):
+        import json
+        with open('../data/test_data.txt') as json_file:
+            data = json.load(json_file)
+            self.assertEqual(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0]),2.625)
 
 # mark average =============================================================================================
 
@@ -288,4 +293,4 @@ if __name__ == '__main__':
     #nosetests
 
 #to check with ctrl + f
-#used assert types: assertTrue, assertFalse, assertIsNot, assertIsNotNone, assertIs
+#used assert types: assertTrue, assertFalse, assertIsNot, assertIsNotNone, assertIs, assertNotEqual
