@@ -16,7 +16,7 @@ class MenuClassTest(unittest.TestCase):
     def setUp(self):
         self.temp = MenuClass
     #testing menu() function
-    @patch('discipleClass.DiscipleClass.chooseAndDisplayDisciple')
+    @patch('menuClass.MenuClass.menu')
     def test_menu_called(self, mock_function):
         mockClass = MenuClass()
         mockClass.menu("EN", 0)#i had to give in any choose so tests go on
@@ -120,6 +120,12 @@ class DiscipleClassTest(unittest.TestCase):
     def test_displayAllDisciples_called(self, mock_function):
         mockClass = DiscipleClass()
         mockClass.displayAllDisciples("EN")
+        self.assertTrue(mock_function.called)
+
+    @patch('discipleClass.DiscipleClass.chooseAndDisplayDisciple')
+    def test_chooseAndDisplayDisciple_called(self, mock_function):
+        mockClass = DiscipleClass()
+        mockClass.chooseAndDisplayDisciple("EN")
         self.assertTrue(mock_function.called)
 
 
