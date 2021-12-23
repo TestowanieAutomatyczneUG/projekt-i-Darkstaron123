@@ -16,7 +16,12 @@ class MenuClassTest(unittest.TestCase):
         try:
             self.temp.chooseLanguage("EN")
         except ExceptionType:
-            self.fail("myFunc() raised ExceptionType unexpectedly!")
+            self.fail("MenuClass.chooseLanguage(\"EN\") didn't redirect to other function")
+    def test_choose_language_polish(self):
+        try:
+            self.temp.chooseLanguage("PL")
+        except ExceptionType:
+            self.fail("MenuClass.chooseLanguage(\"PL\") didn't redirect to other function")
 
 
 if __name__ == '__main__':
