@@ -91,5 +91,5 @@ class MenuClass:
         except:
             pass
         return MenuClass.menu(language)
-import doctest
-doctest.testmod(extraglobs={'c': MenuClass()})
+#import doctest
+#doctest.testmod(extraglobs={'c': MenuClass()})

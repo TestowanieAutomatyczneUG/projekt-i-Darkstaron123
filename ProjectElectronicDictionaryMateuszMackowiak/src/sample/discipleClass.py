@@ -34,6 +34,11 @@ class DiscipleClass:
             choose = str(input())
             with open('../../data/data.txt') as json_file:
                 data = json.load(json_file)
+                try:
+                    data['disciples'][int(choose)]
+                except:
+                    print("No disciple with provided id.")
+                    return MenuClass.menu(language)
                 # print(data['disciples'][int(choose)])
                 print("Id:" + data['disciples'][int(choose)]['id'])
                 print("First Name:" + data['disciples'][int(choose)]['firstname'])
@@ -73,6 +78,11 @@ class DiscipleClass:
             choose = str(input())
             with open('../../data/data.txt') as json_file:
                 data = json.load(json_file)
+                try:
+                    data['disciples'][int(choose)]
+                except:
+                    print("Brak ucznia o podanym id.")
+                    return MenuClass.menu(language)
                 # print(data['disciples'][int(choose)])
                 print("Id:" + data['disciples'][int(choose)]['id'])
                 print("Pierwsze Imie:" + data['disciples'][int(choose)]['firstname'])
@@ -124,7 +134,8 @@ class DiscipleClass:
                         "id": str(len(data['disciples'])),
                         "firstname": firstname,
                         "lastname": lastname,
-                        "subjects": []
+                        "subjects": [],
+                        "notices":[],
                     }
                 )
                 json.dump(data, outfile)
@@ -159,6 +170,11 @@ class DiscipleClass:
             choose = str(input())
             with open('../../data/data.txt') as json_file:
                 data = json.load(json_file)
+                try:
+                    data['disciples'][int(choose)]
+                except:
+                    print("No disciple with provided id.")
+                    return MenuClass.menu(language)
                 disciple = data['disciples'][int(choose)]
                 print("=>Choosen disciple.<=")
                 print("Id:" + disciple['id'])
@@ -210,6 +226,11 @@ class DiscipleClass:
             choose = str(input())
             with open('../../data/data.txt') as json_file:
                 data = json.load(json_file)
+                try:
+                    data['disciples']
+                except:
+                    print("Brak ucznia o podanym id.")
+                    return MenuClass.menu(language)
                 disciple = data['disciples'][int(choose)]
                 print("=>Wybrany uczen.<=")
                 print("Id:" + disciple['id'])
@@ -267,6 +288,11 @@ class DiscipleClass:
             with open('../../data/data.txt') as json_file:
                 data = json.load(json_file)
             with open('../../data/data.txt', 'w') as outfile:
+                try:
+                    data['disciples'][int(choose)]
+                except:
+                    print("No disciple with provided id.")
+                    return MenuClass.menu(language)
                 del data['disciples'][int(choose)]
                 number = 0  # reassigning id after deletion
                 for i in data['disciples']:
@@ -281,6 +307,11 @@ class DiscipleClass:
             with open('../../data/data.txt') as json_file:
                 data = json.load(json_file)
             with open('../../data/data.txt', 'w') as outfile:
+                try:
+                    data['disciples'][int(choose)]
+                except:
+                    print("Brak ucznia o podanym id.")
+                    return MenuClass.menu(language)
                 del data['disciples'][int(choose)]
                 number = 0  # reassigning id after deletion
                 for i in data['disciples']:
