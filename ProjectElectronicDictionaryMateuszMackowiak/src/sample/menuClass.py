@@ -26,8 +26,7 @@ class MenuClass:
             elif (choose == "5"):
                 MenuClass.exportDatabaseToCSV(language)
             elif (choose == "6"):
-                print("Wylogowales sie!")
-                return -1
+                MenuClass.logOut(language)
             else:
                 print('You had a typo. Try again!')
                 return menu(language)
@@ -55,8 +54,7 @@ class MenuClass:
             elif (choose == "5"):
                 MenuClass.exportDatabaseToCSV(language)
             elif (choose == "6"):
-                print("You have logged out!")
-                return -1
+                MenuClass.logOut(language)
             else:
                 print('You had a typo. Try again!')
                 return menu(language)
@@ -91,5 +89,11 @@ class MenuClass:
         except:
             pass
         return MenuClass.menu(language)
+    def logOut(language):
+        if(language=="PL"):
+            print("Wylogowales sie!")
+        if(language=="EN"):
+            print("You have logged out!")
+        return -1
 #import doctest
 #doctest.testmod(extraglobs={'c': MenuClass()})

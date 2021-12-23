@@ -100,6 +100,7 @@ class MenuClassTest(unittest.TestCase):
         mockClass.menu("EN","6")
         self.assertTrue(mock_function.called)
     #testing choose_language() function
+    #choose language=============================================================================================
     def test_choose_language_english(self):
         try:
             self.temp.chooseLanguage("EN")
@@ -140,6 +141,11 @@ class MenuClassTest(unittest.TestCase):
         self.assertNotEqual(type(self.temp.chooseLanguage("EN")),memoryview)
     def exception_choose_language_other(self):
         self.assertRaises(Exception("Wrong language inputed."),self.temp.chooseLanguage("Uga Booga"))
+# choose language=======================================================================================================
+# log out===============================================================================================================
+    def test_log_out_return_minus_one(self):
+        self.assertEqual(MenuClass.logOut("EN"),-1)
+# log out===============================================================================================================
 class DiscipleClassTest(unittest.TestCase):
     def setUp(self):
         self.temp = DiscipleClass
