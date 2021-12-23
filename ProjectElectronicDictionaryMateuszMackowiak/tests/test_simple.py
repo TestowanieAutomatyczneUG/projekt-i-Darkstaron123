@@ -4,13 +4,14 @@
 
 import unittest
 
-from sample.simple import add_one
+from menuClass import MenuClass
 
 
-class TestSimple(unittest.TestCase):
-
-    def test_add_one(self):
-        self.assertEqual(add_one(5), 6)
+class MenuClassTest(unittest.TestCase):
+    def setUp(self):
+        self.temp = MenuClass
+    def test_menu_log_out(self):
+        self.assertEqual(MenuClass.menu("EN","6"), 0)
 
 
 if __name__ == '__main__':

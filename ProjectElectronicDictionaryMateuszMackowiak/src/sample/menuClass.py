@@ -1,5 +1,5 @@
 class MenuClass:
-    def menu(language):
+    def menu(language,choose=None):
         from discipleClass import DiscipleClass
         from menuClass import MenuClass
         if (language == 'PL'):
@@ -9,7 +9,8 @@ class MenuClass:
             print('2. Edycja ucznia.')
             print('3. Usuniecie ucznia.')
             print('4. Wyloguj sie.')
-            choose = str(input())
+            if(choose==None):
+                choose = str(input())
             if (choose == "0"):
                 DiscipleClass.chooseAndDisplayDisciple(language)
             elif (choose == "1"):
@@ -33,7 +34,8 @@ class MenuClass:
             print('4. Import database from csv file')
             print('5. Export database to csv file')
             print('6. Log Out')
-            choose = str(input())
+            if(choose==None):
+                choose = str(input())
             if (choose == "0"):
                 DiscipleClass.chooseAndDisplayDisciple(language)
             elif (choose == "1"):
@@ -53,11 +55,14 @@ class MenuClass:
                 print('You had a typo. Try again!')
                 return menu(language)
 
-    def chooseLanguage():
+    def chooseLanguage(choose=None):
         print('To choose english language, type in: EN')
         print('Zeby wybrac polski jezyk, wpisz: PL')
-        choose = str(input())
+        if(choose==None):
+                choose = str(input())
         language = choose
+        if(choose!="EN" and choose!="PL"):
+            raise Exception("Wrong language inputed.")
         return language
     def exportDatabaseToCSV(language):
         from menuClass import MenuClass
