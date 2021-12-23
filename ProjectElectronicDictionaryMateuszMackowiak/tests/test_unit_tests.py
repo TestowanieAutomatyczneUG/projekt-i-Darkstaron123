@@ -178,7 +178,15 @@ class MenuClassTest(unittest.TestCase):
 class DiscipleClassTest(unittest.TestCase):
     def setUp(self):
         self.temp = DiscipleClass
-# mark average from disciple=============================================================================================
+
+# notices quantity from disciple========================================================================================
+    def test_countNumberOfNotices_is_int(self):
+        import json
+        with open('../data/test_data.txt') as json_file:
+            data = json.load(json_file)
+            self.assertTrue(type(self.temp.countNumberOfNotices(data['disciples'][0])) == int)
+# notices quantity from disciple========================================================================================
+# mark average from disciple============================================================================================
     def test_calculateMarkAverageFromDisciple_is_result_float(self):
         import json
         with open('../data/test_data.txt') as json_file:
@@ -270,7 +278,7 @@ class DiscipleClassTest(unittest.TestCase):
             data = json.load(json_file)
             self.assertEqual(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0]),2.625)
 
-# mark average from disciple=============================================================================================
+# mark average from disciple============================================================================================
 # mark average from subject=============================================================================================
     def test_calculateMarkAverageFromSubject_is_result_float(self):
         import json
@@ -343,7 +351,7 @@ class DiscipleClassTest(unittest.TestCase):
             data = json.load(json_file)
             self.assertIsNot(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0])),memoryview)
 
-    # mark average from subject=============================================================================================
+    # mark average from subject=========================================================================================
     @patch('discipleClass.DiscipleClass.displayAllDisciples')
     def test_displayAllDisciples_called(self, mock_function):
         mockClass = DiscipleClass()
@@ -428,4 +436,5 @@ if __name__ == '__main__':
     #nosetests
 
 #to check with ctrl + f
-#used assert types: 1. assertTrue, 2. assertFalse, 3. assertIsNot, 4. assertIsNotNone, 5. assertIs, 6. assertNotEqual, 7. assertEqual
+#used assert types: 1. assertTrue, 2. assertFalse, 3. assertIsNot, 4. assertIsNotNone, 5. assertIs,
+# 6. assertNotEqual, 7. assertEqual

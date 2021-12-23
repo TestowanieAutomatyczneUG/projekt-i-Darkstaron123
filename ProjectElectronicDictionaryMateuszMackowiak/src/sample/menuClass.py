@@ -29,7 +29,7 @@ class MenuClass:
                 MenuClass.logOut(language)
             else:
                 print('You had a typo. Try again!')
-                return menu(language)
+                return MenuClass.menu(language)
         elif (language == 'EN'):
             print('Hello, you logged in electronic dictionary. Choose option, by typing in it\'s number:')
             print('0. Choose and show disciple, with mark averages(statistics)')
@@ -57,7 +57,7 @@ class MenuClass:
                 MenuClass.logOut(language)
             else:
                 print('You had a typo. Try again!')
-                return menu(language)
+                return MenuClass.menu(language)
 
     def chooseLanguage(choose=None):
         if (choose == None):

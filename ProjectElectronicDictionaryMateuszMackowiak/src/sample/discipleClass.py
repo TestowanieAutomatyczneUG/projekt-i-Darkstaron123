@@ -57,7 +57,7 @@ class DiscipleClass:
                         print('')
                     print("Average from averages of all subjects of this disciple:", end="")
                     print(str(DiscipleClass.calculateMarkAverageFromDisciple(data['disciples'][int(choose)])))
-                print("Notices:")
+                print("Notices(Quantity: "+str(DiscipleClass.countNumberOfNotices(data['disciples'][int(choose)]['notices']))+"):")
                 for i in data['disciples'][int(choose)]['notices']:
                     print(i)
             print("Type in anything to return to menu")
@@ -91,7 +91,7 @@ class DiscipleClass:
                         print('')
                     print("Srednia z ocen wszystkich przedmiotow tego ucznia:",end="")
                     print(str(DiscipleClass.calculateMarkAverageFromDisciple(data['disciples'][int(choose)])))
-                print("Uwagi:")
+                print("Uwagi(Ilosc: "+str(DiscipleClass.countNumberOfNotices(data['disciples'][int(choose)]['notices']))+"):")
                 for i in data['disciples'][int(choose)]['notices']:
                     print(i)
             print("Wprowadz cokolwiek zeby wrocic do menu.")
@@ -329,4 +329,6 @@ class DiscipleClass:
                 quantityMark = quantityMark + 1
             averageMark = float(sumMark) / float(quantityMark)
             return averageMark
+    def countNumberOfNotices(notices):
+        return len(notices)
 
