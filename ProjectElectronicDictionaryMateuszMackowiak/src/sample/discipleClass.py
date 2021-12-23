@@ -299,12 +299,12 @@ class DiscipleClass:
                 else:
                     return MenuClass.menu(language)
             except:
-                return MenuClass.menu(language)
+                raise Exception("Wrong Input.")
             return MenuClass.menu(language)
         if (language == "PL"):
             print("Weszles w proces usuwania ucznia. Wybierz ucznia poprzez wpisanie jego Id z listy ponizej,")
             DiscipleClass.displayAllDisciples(language)
-            choose = str(input())
+            choose=str(input())
             try:
                 with open('../../data/data.txt') as json_file:
                     data = json.load(json_file)
@@ -319,6 +319,6 @@ class DiscipleClass:
                 else:
                     return MenuClass.menu(language)
             except:
-                return MenuClass.menu(language)
+                raise Exception("Wrong Input.")
             return MenuClass.menu(language)
 
