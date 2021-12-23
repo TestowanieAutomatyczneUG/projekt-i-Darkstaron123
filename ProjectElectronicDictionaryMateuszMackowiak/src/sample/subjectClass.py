@@ -127,13 +127,19 @@ class SubjectClass:
                     print("Id: " + i['id'] + " Name: " + i['name'])
             typedId = str(input())
 
-            with open('../../data/data.txt', 'w') as outfile:
-                del data['disciples'][int(discipleId)]['subjects'][int(typedId)]
-                number = 0  # reassigning id after deletion
-                for i in data['disciples'][int(discipleId)]['subjects']:
-                    i['id'] = str(number)
-                    number = number + 1
-                json.dump(data, outfile)
+            try:
+                if (len(data['disciples'][int(discipleId)]['subjects']) > int(typedId) and int(typedId) >= 0):
+                    with open('../../data/data.txt', 'w') as outfile:
+                        del data['disciples'][int(discipleId)]['subjects'][int(typedId)]
+                        number = 0  # reassigning id after deletion
+                        for i in data['disciples'][int(discipleId)]['subjects']:
+                            i['id'] = str(number)
+                            number = number + 1
+                        json.dump(data, outfile)
+                else:
+                    return DiscipleClass.editDisciple(language)
+            except:
+                print("Wrong input.")
             return DiscipleClass.editDisciple(language)
         if (language == "PL"):
             print("Weszles w proces usuwania przedmiotu. Wybierz przedmiot poprzez wpisanie jego Id z listy ponizej,")
@@ -143,11 +149,17 @@ class SubjectClass:
                     print("Id: " + i['id'] + " Nazwa: " + i['name'])
             typedId = str(input())
 
-            with open('../../data/data.txt', 'w') as outfile:
-                del data['disciples'][int(discipleId)]['subjects'][int(typedId)]
-                number = 0  # reassigning id after deletion
-                for i in data['disciples'][int(discipleId)]['subjects']:
-                    i['id'] = str(number)
-                    number = number + 1
-                json.dump(data, outfile)
+            try:
+                if (len(data['disciples'][int(discipleId)]['subjects']) > int(typedId) and int(typedId) >= 0):
+                    with open('../../data/data.txt', 'w') as outfile:
+                        del data['disciples'][int(discipleId)]['subjects'][int(typedId)]
+                        number = 0  # reassigning id after deletion
+                        for i in data['disciples'][int(discipleId)]['subjects']:
+                            i['id'] = str(number)
+                            number = number + 1
+                        json.dump(data, outfile)
+                else:
+                    return DiscipleClass.editDisciple(language)
+            except:
+                print("Zly Input.")
             return DiscipleClass.editDisciple(language)
