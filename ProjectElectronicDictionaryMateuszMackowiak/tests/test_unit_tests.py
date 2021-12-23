@@ -500,5 +500,7 @@ if __name__ == '__main__':
     #nosetests
 
 #to check with ctrl + f
-#used assert types: 1. assertTrue, 2. assertFalse, 3. assertIsNot, 4. assertIsNotNone, 5. assertIs,
+#used assert types from unittest: 1. assertTrue, 2. assertFalse, 3. assertIsNot, 4. assertIsNotNone, 5. assertIs,
 # 6. assertNotEqual, 7. assertEqual
+#used assert types from pyhamcrest: 8. assert_that
+
