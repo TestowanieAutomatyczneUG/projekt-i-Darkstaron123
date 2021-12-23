@@ -157,6 +157,8 @@ class MenuClassTest(unittest.TestCase):
         self.assertNotEqual(type(self.temp.logOut("FR")),str)
     def test_log_out_is_not_tuple(self):
         self.assertNotEqual(type(self.temp.logOut("FR")),tuple)
+    def test_log_out_is_not_range(self):
+        self.assertNotEqual(type(self.temp.logOut("FR")),range)
 
 # log out===============================================================================================================
 class DiscipleClassTest(unittest.TestCase):
