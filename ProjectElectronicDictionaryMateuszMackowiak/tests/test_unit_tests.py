@@ -24,9 +24,15 @@ class MenuClassTest(unittest.TestCase):
         self.assertTrue(mock_function.called)
     #1
     @patch('discipleClass.DiscipleClass.addDisciple')
-    def test_menu_addDisciple(self, mock_function):
+    def test_menu_addDisciple_worked(self, mock_function):
         mockClass = DiscipleClass()
         mockClass.addDisciple("EN")
+        self.assertTrue(mock_function.called)
+
+    @patch('menuClass.MenuClass.menu')
+    def test_menu_addDisciple_called(self, mock_function):
+        mockClass = MenuClass()
+        mockClass.menu("EN", 1)
         self.assertTrue(mock_function.called)
     #2
     @patch('discipleClass.DiscipleClass.editDisciple')
