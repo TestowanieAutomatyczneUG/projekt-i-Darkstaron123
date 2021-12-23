@@ -171,6 +171,8 @@ class MenuClassTest(unittest.TestCase):
         self.assertNotEqual(type(self.temp.logOut("FR")),bytes)
     def test_log_out_is_not_bytearray(self):
         self.assertNotEqual(type(self.temp.logOut("FR")),bytearray)
+    def test_log_out_is_not_memoryview(self):
+        self.assertNotEqual(type(self.temp.logOut("FR")),memoryview)
 
 # log out===============================================================================================================
 class DiscipleClassTest(unittest.TestCase):
