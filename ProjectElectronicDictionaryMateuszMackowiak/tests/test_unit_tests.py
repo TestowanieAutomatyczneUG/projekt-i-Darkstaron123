@@ -161,6 +161,8 @@ class MenuClassTest(unittest.TestCase):
         self.assertNotEqual(type(self.temp.logOut("FR")),range)
     def test_log_out_is_not_dict(self):
         self.assertNotEqual(type(self.temp.logOut("FR")),dict)
+    def test_log_out_is_not_set(self):
+        self.assertNotEqual(type(self.temp.logOut("FR")),set)
 
 # log out===============================================================================================================
 class DiscipleClassTest(unittest.TestCase):
