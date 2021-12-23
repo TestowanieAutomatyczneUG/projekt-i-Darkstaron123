@@ -136,6 +136,8 @@ class MenuClassTest(unittest.TestCase):
         self.assertNotEqual(type(self.temp.chooseLanguage("EN")),bytes)
     def test_choose_language_is_not_bytesarray(self):
         self.assertNotEqual(type(self.temp.chooseLanguage("EN")),bytearray)
+    def test_choose_language_is_not_memoryview(self):
+        self.assertNotEqual(type(self.temp.chooseLanguage("EN")),memoryview)
     def exception_choose_language_other(self):
         self.assertRaises(Exception("Wrong language inputed."),self.temp.chooseLanguage("Uga Booga"))
 class DiscipleClassTest(unittest.TestCase):
