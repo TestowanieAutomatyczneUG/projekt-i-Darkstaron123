@@ -112,6 +112,8 @@ class MenuClassTest(unittest.TestCase):
             self.fail("MenuClass.chooseLanguage(\"PL\") didn't redirect to menu")
     def test_choose_language_is_str(self):
         self.assertEqual(type(self.temp.chooseLanguage("EN")),str)
+    def test_choose_language_is_not_int(self):
+        self.assertNotEqual(type(self.temp.chooseLanguage("EN")),int)
     def exception_choose_language_other(self):
         self.assertRaises(Exception("Wrong language inputed."),self.temp.chooseLanguage("Uga Booga"))
 class DiscipleClassTest(unittest.TestCase):
