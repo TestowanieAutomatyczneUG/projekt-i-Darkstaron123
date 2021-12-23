@@ -110,6 +110,8 @@ class MenuClassTest(unittest.TestCase):
             self.temp.chooseLanguage("PL")
         except ExceptionType:
             self.fail("MenuClass.chooseLanguage(\"PL\") didn't redirect to menu")
+    def test_choose_language_is_str(self):
+        self.assertEqual(type(self.temp.chooseLanguage("EN")),str)
     def exception_choose_language_other(self):
         self.assertRaises(Exception("Wrong language inputed."),self.temp.chooseLanguage("Uga Booga"))
 class DiscipleClassTest(unittest.TestCase):
@@ -354,6 +356,7 @@ class MarkClassTest(unittest.TestCase):
         mockClass = MarkClass()
         mockClass.removeMark("EN")
         self.assertTrue(mock_function.called)
+
 
 
 
