@@ -178,6 +178,12 @@ class MarkClassTest(unittest.TestCase):
         mockClass.addMark("EN")
         self.assertTrue(mock_function.called)
 
+    @patch('markClass.MarkClass.editMark')
+    def test_editMark_called(self, mock_function):
+        mockClass = MarkClass()
+        mockClass.editMark("EN")
+        self.assertTrue(mock_function.called)
+
 
 
 
