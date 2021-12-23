@@ -115,6 +115,15 @@ class MenuClassTest(unittest.TestCase):
 class DiscipleClassTest(unittest.TestCase):
     def setUp(self):
         self.temp = DiscipleClass
+# mark average =============================================================================================
+    def test_calculateMarkAverageFromDisciple_is_result_float(self):
+        import json
+        with open('../data/test_data.txt') as json_file:
+            data = json.load(json_file)
+            self.assertTrue(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0]))==float)
+
+# mark average =============================================================================================
+
 
     @patch('discipleClass.DiscipleClass.displayAllDisciples')
     def test_displayAllDisciples_called(self, mock_function):
@@ -197,3 +206,5 @@ class MarkClassTest(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
     nosetests
+
+#used assert types: assertTrue, assertFalse
