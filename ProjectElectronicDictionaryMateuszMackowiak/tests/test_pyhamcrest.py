@@ -67,3 +67,8 @@ class PyHamcrestAverageCalculatorTest(unittest.TestCase):
         with open('../data/test_data.txt') as json_file:
             data = json.load(json_file)
             assert_that(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0])),is_not(frozenset))
+    def test_calculateMarkAverageFromDisciple_is_not_bool(self):
+        import json
+        with open('../data/test_data.txt') as json_file:
+            data = json.load(json_file)
+            assert_that(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0])),is_not(bool))
