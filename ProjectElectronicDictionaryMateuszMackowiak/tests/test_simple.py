@@ -11,7 +11,12 @@ class MenuClassTest(unittest.TestCase):
     def setUp(self):
         self.temp = MenuClass
     def test_menu_log_out(self):
-        self.assertEqual(MenuClass.menu("EN","6"), 0)
+        self.assertEqual(self.temp.menu("EN","6"), 0)
+    def test_choose_language_english(self):
+        try:
+            self.temp.chooseLanguage("EN")
+        except ExceptionType:
+            self.fail("myFunc() raised ExceptionType unexpectedly!")
 
 
 if __name__ == '__main__':
