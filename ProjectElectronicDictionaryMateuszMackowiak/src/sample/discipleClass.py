@@ -50,15 +50,10 @@ class DiscipleClass:
                         print(' ' + i['name'])
                         print(' Marks:')
                         if (len(i['marks'])> 0):
-                            sumMark = 0
-                            quantityMark = 0
                             for ii in i['marks']:
-                                sumMark = sumMark + int(ii)
-                                quantityMark = quantityMark + 1
                                 print('  ' + ii, end=", ")
-                            averageMark = float(sumMark) / float(quantityMark)
                             print('Average from marks of this subject:', end="")
-                            print(str(averageMark))
+                            print(str(DiscipleClass.calculateMarkAverageFromSubject(i['marks'])))
                         print('')
                     print("Average from averages of all subjects of this disciple:", end="")
                     print(str(DiscipleClass.calculateMarkAverageFromDisciple(data['disciples'][int(choose)])))
@@ -89,15 +84,10 @@ class DiscipleClass:
                         print(' ' + i['name'])
                         print(' Oceny:')
                         if (len(i['marks'])> 0):
-                            sumMark = 0
-                            quantityMark = 0
                             for ii in i['marks']:
-                                sumMark = sumMark + int(ii)
-                                quantityMark = quantityMark + 1
                                 print('  ' + ii, end=", ")
-                            averageMark = float(sumMark) / float(quantityMark)
                             print('Srednia z ocen tego przedmiotu:', end="")
-                            print(str(averageMark))
+                            print(str(DiscipleClass.calculateMarkAverageFromSubject(i['marks'])))
                         print('')
                     print("Srednia z ocen wszystkich przedmiotow tego ucznia:",end="")
                     print(str(DiscipleClass.calculateMarkAverageFromDisciple(data['disciples'][int(choose)])))
@@ -329,4 +319,14 @@ class DiscipleClass:
                     quantitySubject = quantitySubject + 1
             averageSubject = float(sumSubject) / float(quantitySubject)
         return averageSubject
+
+    def calculateMarkAverageFromSubject(marks):
+        if (len(marks) > 0):
+            sumMark = 0
+            quantityMark = 0
+            for ii in marks:
+                sumMark = sumMark + int(ii)
+                quantityMark = quantityMark + 1
+            averageMark = float(sumMark) / float(quantityMark)
+            return averageMark
 
