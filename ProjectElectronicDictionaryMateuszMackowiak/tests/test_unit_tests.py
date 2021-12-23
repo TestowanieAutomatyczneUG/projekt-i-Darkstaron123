@@ -116,6 +116,8 @@ class MenuClassTest(unittest.TestCase):
         self.assertNotEqual(type(self.temp.chooseLanguage("EN")),int)
     def test_choose_language_is_not_float(self):
         self.assertNotEqual(type(self.temp.chooseLanguage("EN")),float)
+    def test_choose_language_is_not_complex(self):
+        self.assertNotEqual(type(self.temp.chooseLanguage("EN")),complex)
     def exception_choose_language_other(self):
         self.assertRaises(Exception("Wrong language inputed."),self.temp.chooseLanguage("Uga Booga"))
 class DiscipleClassTest(unittest.TestCase):
