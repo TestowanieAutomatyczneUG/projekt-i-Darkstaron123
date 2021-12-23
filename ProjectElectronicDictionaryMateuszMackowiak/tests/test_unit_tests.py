@@ -109,7 +109,13 @@ class MenuClassTest(unittest.TestCase):
         self.assertRaises(Exception("Wrong language inputed."),self.temp.chooseLanguage("Uga Booga"))
 class DiscipleClassTest(unittest.TestCase):
     def setUp(self):
-        self.temp = MenuClass
+        self.temp = DiscipleClass
+
+    @patch('discipleClass.DiscipleClass.displayAllDisciples')
+    def test_displayAllDisciples_called(self, mock_function):
+        mockClass = DiscipleClass()
+        mockClass.displayAllDisciples("EN")
+        self.assertTrue(mock_function.called)
 
 
 
