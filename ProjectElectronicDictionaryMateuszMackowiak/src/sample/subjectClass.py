@@ -17,7 +17,7 @@ class SubjectClass:
                     }
                 )
                 json.dump(data, outfile)
-            return DiscipleClass.editDisciple(language)
+            return DiscipleClass().editDisciple(language)
         if (language == "PL"):
             print("Weszles w proces dodawania przedmiotu do ucznia")
             print("Wpisz nazwe nowego przedmiotu.")
@@ -33,7 +33,7 @@ class SubjectClass:
                     }
                 )
                 json.dump(data, outfile)
-            return DiscipleClass.editDisciple(language)
+            return DiscipleClass().editDisciple(language)
 
     def editSubject(self,language, discipleId):
         import json
@@ -66,11 +66,11 @@ class SubjectClass:
             elif (choose == "1"):
                 data['disciples'][int(discipleId)]['subjects'][int(typedId)]['name'] = str(input())
             elif (choose == "2"):
-                MarkClass.addMark(language, discipleId, typedId)
+                MarkClass().addMark(language, discipleId, typedId)
             elif (choose == "3"):
-                MarkClass.editMark(language, discipleId, typedId)
+                MarkClass().editMark(language, discipleId, typedId)
             elif (choose == "4"):
-                MarkClass.removeMark(language, discipleId, typedId)
+                MarkClass().removeMark(language, discipleId, typedId)
             else:
                 print('You had a typo. Try again!')
                 return MarkClass().editSubject(language, discipleId)
@@ -104,11 +104,11 @@ class SubjectClass:
             elif (choose == "1"):
                 data['disciples'][int(discipleId)]['subjects'][int(typedId)]['name'] = str(input())
             elif (choose == "2"):
-                MarkClass.addMark(language, discipleId, typedId)
+                MarkClass().addMark(language, discipleId, typedId)
             elif (choose == "3"):
-                MarkClass.editMark(language, discipleId, typedId)
+                MarkClass().editMark(language, discipleId, typedId)
             elif (choose == "4"):
-                MarkClass.removeMark(language, discipleId, typedId)
+                MarkClass().removeMark(language, discipleId, typedId)
             else:
                 print('Miales literowke. Sproboj ponownie!')
                 return MarkClass().editSubject(language, discipleId)
