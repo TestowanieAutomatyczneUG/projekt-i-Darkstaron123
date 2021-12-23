@@ -153,6 +153,8 @@ class MenuClassTest(unittest.TestCase):
         self.assertNotEqual(type(self.temp.logOut("FR")),complex)
     def test_log_out_is_not_list(self):
         self.assertNotEqual(type(self.temp.logOut("FR")),list)
+    def test_log_out_is_not_string(self):
+        self.assertNotEqual(type(self.temp.logOut("FR")),str)
 
 # log out===============================================================================================================
 class DiscipleClassTest(unittest.TestCase):
