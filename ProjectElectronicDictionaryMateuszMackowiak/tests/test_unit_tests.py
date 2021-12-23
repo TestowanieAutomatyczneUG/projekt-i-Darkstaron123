@@ -161,6 +161,11 @@ class DiscipleClassTest(unittest.TestCase):
         with open('../data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertFalse(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0]))==set)
+    def test_calculateMarkAverageFromDisciple_result_is_not_frozenset(self):
+        import json
+        with open('../data/test_data.txt') as json_file:
+            data = json.load(json_file)
+            self.assertFalse(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0]))==frozenset)
 
 # mark average =============================================================================================
 
