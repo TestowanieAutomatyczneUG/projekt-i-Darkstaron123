@@ -264,6 +264,11 @@ class DiscipleClassTest(unittest.TestCase):
         with open('../data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertIsNot(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0])),bool)
+    def test_calculateMarkAverageFromSubject_result_is_not_bytes(self):
+        import json
+        with open('../data/test_data.txt') as json_file:
+            data = json.load(json_file)
+            self.assertIsNot(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0])),bytes)
 
     # mark average from subject=============================================================================================
     @patch('discipleClass.DiscipleClass.displayAllDisciples')
