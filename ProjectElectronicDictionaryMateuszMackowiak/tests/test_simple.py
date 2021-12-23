@@ -16,12 +16,19 @@ class MenuClassTest(unittest.TestCase):
     def setUp(self):
         self.temp = MenuClass
     #testing menu() function
+    #0
     @patch('discipleClass.DiscipleClass.chooseAndDisplayDisciple')
     def test_menu_chooseAndDisplayDisciple(self, mock_function):
         mockClass = DiscipleClass()
         mockClass.chooseAndDisplayDisciple("EN")
         self.assertTrue(mock_function.called)
-
+    #1
+    @patch('discipleClass.DiscipleClass.addDisciple')
+    def test_menu_addDisciple(self, mock_function):
+        mockClass = DiscipleClass()
+        mockClass.addDisciple("EN")
+        self.assertTrue(mock_function.called)
+    #6
     @patch('menuClass.MenuClass.menu')
     def test_menu_log_out(self, mock_function):
         mockClass = MenuClass()
