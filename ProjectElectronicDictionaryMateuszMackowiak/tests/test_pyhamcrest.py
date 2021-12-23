@@ -1,13 +1,18 @@
-import unittest
 from hamcrest import *
 import unittest
-from unittest.mock import patch
+from hamcrest.core.base_matcher import BaseMatcher
 
-from menuClass import MenuClass
+class IsEnglishLanguageMatcher(BaseMatcher):# custom matcher
+
+    def __init__(self, word):
+        self.word = word
+
+    def _matches(self, item):
+        return "EN" == self.word
+
 from discipleClass import DiscipleClass
-from subjectClass import SubjectClass
-from markClass import MarkClass
-class PyHamcrestAverageCalculatorTest(unittest.TestCase):
+from menuClass import MenuClass
+class PyHamcrest_calculateMarkAverageFromDisciple_Test(unittest.TestCase):
 
     def setUp(self):
         self.temp = DiscipleClass
@@ -87,3 +92,5 @@ class PyHamcrestAverageCalculatorTest(unittest.TestCase):
         with open('../data/test_data.txt') as json_file:
             data = json.load(json_file)
             assert_that(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0])),is_not(memoryview))
+    def test_choose_language(self):
+        assert_that(MenuClass.chooseLanguage("EN"),IsEnglishLanguageMatcher("EN"))#usage of custom matcher
