@@ -135,6 +135,12 @@ class DiscipleClassTest(unittest.TestCase):
         mockClass.addDisciple("EN")
         self.assertTrue(mock_function.called)
 
+    @patch('discipleClass.DiscipleClass.editDisciple')
+    def test_editDisciple_called(self, mock_function):
+        mockClass = DiscipleClass()
+        mockClass.editDisciple("EN")
+        self.assertTrue(mock_function.called)
+
 
 
 
