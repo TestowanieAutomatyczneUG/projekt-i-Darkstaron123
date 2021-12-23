@@ -34,7 +34,7 @@ class MenuClassTest(unittest.TestCase):
         mockClass = DiscipleClass()
         mockClass.editDisciple("EN")
         self.assertTrue(mock_function.called)
-    # 3
+    #3
     @patch('discipleClass.DiscipleClass.removeDisciple')
     def test_menu_removeDisciple(self, mock_function):
         mockClass = DiscipleClass()
@@ -45,6 +45,12 @@ class MenuClassTest(unittest.TestCase):
     def test_menu_importDatabaseFromCSV(self, mock_function):
         mockClass = MenuClass()
         mockClass.importDatabaseFromCSV("EN")
+        self.assertTrue(mock_function.called)
+    #5
+    @patch('menuClass.MenuClass.exportDatabaseToCSV')
+    def test_menu_exportDatabaseFromCSV(self, mock_function):
+        mockClass = MenuClass()
+        mockClass.exportDatabaseToCSV("EN")
         self.assertTrue(mock_function.called)
     #6
     @patch('menuClass.MenuClass.menu')
