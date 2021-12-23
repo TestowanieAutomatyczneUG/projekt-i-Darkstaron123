@@ -165,6 +165,8 @@ class MenuClassTest(unittest.TestCase):
         self.assertNotEqual(type(self.temp.logOut("FR")),set)
     def test_log_out_is_not_frozenset(self):
         self.assertNotEqual(type(self.temp.logOut("FR")),frozenset)
+    def test_log_out_is_not_bool(self):
+        self.assertNotEqual(type(self.temp.logOut("FR")),bool)
 
 # log out===============================================================================================================
 class DiscipleClassTest(unittest.TestCase):
