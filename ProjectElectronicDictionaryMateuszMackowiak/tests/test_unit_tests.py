@@ -141,6 +141,13 @@ class DiscipleClassTest(unittest.TestCase):
         mockClass.editDisciple("EN")
         self.assertTrue(mock_function.called)
 
+    @patch('discipleClass.DiscipleClass.removeDisciple')
+    def test_removeDisciple_called(self, mock_function):
+        mockClass = DiscipleClass()
+        mockClass.removeDisciple("EN")
+        self.assertTrue(mock_function.called)
+
+
 
 
 
