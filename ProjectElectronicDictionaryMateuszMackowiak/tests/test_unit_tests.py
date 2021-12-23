@@ -3,7 +3,6 @@
 # setup.py that excludes installing the "tests" package
 
 import unittest
-from unittest.mock import Mock
 from unittest.mock import patch
 
 from menuClass import MenuClass
