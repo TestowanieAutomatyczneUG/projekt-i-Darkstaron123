@@ -2,7 +2,7 @@ import unittest
 from parameterized import parameterized_class
 from menuClass import MenuClass
 
-@parameterized_class(('language', 'expected'), [
+@parameterized_class(('choose', 'expected'), [
     ("EN","EN"),
     ("PL","EN"),
     ("SomethingThatWillCauseException",Exception("Wrong language inputed."))
@@ -11,5 +11,5 @@ class MenuClass_chooseLanguage_ClassLevel(unittest.TestCase):#Poziom klasy
     def setUp(self):
         self.tmp = MenuClass()
 
-    def test_choose_language_parameterized(self):
-        self.assertEqual(self.tmp.chooseLanguage(self.language), self.expected)
+    def test_chooseLanguage_parameterized(self):
+        self.assertEqual(self.tmp.chooseLanguage(self.choose), self.expected)
