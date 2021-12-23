@@ -1,19 +1,15 @@
 import unittest
 from parameterized import parameterized
-from sample.pangram import *
+from menuClass import MenuClass
 
-class PangramParameterizedPackage_MethodLevel(unittest.TestCase):# Poziom Method
+class MenuClass_chooseLanguage_MethodLevel(unittest.TestCase):# Poziom Method
     def setUp(self):
-        self.tmp = PangramClass()
+        self.tmp = MenuClass()
 
     @parameterized.expand([
-        ("abcdefghijklmnopqrstuvwxyz", True),
-        (1, False),
-        ("abcdefghijklmnopqrs", False),
-        ("dmnopefghijklstuvwxyzabqrc", True),
-        ("ABCDEFGHIJKLMNOPQRSTUVWXYZ", True),
-        ("AbCDEFGHIJKLMNOpqRSTUVWXYZ", True),
-        ("ABCDEFGHIJKLMNOPQRSTUVWXYZqrsA12512BCdefrgw", True),
+        ("EN", "EN"),
+        ("EN", "EN"),
+        ("SomethingThatWillCauseException", Exception("Wrong language inputed.")),
     ])
-    def test_one_parameterized(self,word, expected):
-        self.assertEqual(self.tmp.is_pangram(word), expected)
+    def test_choose_language_parameterized(self,choose, expected):
+        self.assertEqual(self.tmp.chooseLanguage(choose), expected)
