@@ -348,72 +348,72 @@ class DiscipleClassTest(unittest.TestCase):
         import json
         with open('../data/test_data.txt') as json_file:
             data = json.load(json_file)
-            self.assertTrue(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0]))==float)
+            self.assertTrue(type(self.temp.calculateMarkAverageFromSubject(data['disciples'][0]['subjects'][0]['marks']))==float)
     def test_calculateMarkAverageFromSubject_result_is_not_string(self):
         import json
         with open('../data/test_data.txt') as json_file:
             data = json.load(json_file)
-            self.assertIsNot(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0])),str)
+            self.assertIsNot(type(self.temp.calculateMarkAverageFromSubject(data['disciples'][0]['subjects'][0]['marks'])),str)
     def test_calculateMarkAverageFromSubject_result_is_not_int(self):
         import json
         with open('../data/test_data.txt') as json_file:
             data = json.load(json_file)
-            self.assertIsNot(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0])),int)
+            self.assertIsNot(type(self.temp.calculateMarkAverageFromSubject(data['disciples'][0]['subjects'][0]['marks'])),int)
     def test_calculateMarkAverageFromSubject_result_is_not_complex(self):
         import json
         with open('../data/test_data.txt') as json_file:
             data = json.load(json_file)
-            self.assertIsNot(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0])),complex)
+            self.assertIsNot(type(self.temp.calculateMarkAverageFromSubject(data['disciples'][0]['subjects'][0]['marks'])),complex)
     def test_calculateMarkAverageFromSubject_result_is_not_list(self):
         import json
         with open('../data/test_data.txt') as json_file:
             data = json.load(json_file)
-            self.assertIsNot(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0])),list)
+            self.assertIsNot(type(self.temp.calculateMarkAverageFromSubject(data['disciples'][0]['subjects'][0]['marks'])),list)
     def test_calculateMarkAverageFromSubject_result_is_not_tuple(self):
         import json
         with open('../data/test_data.txt') as json_file:
             data = json.load(json_file)
-            self.assertIsNot(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0])),tuple)
+            self.assertIsNot(type(self.temp.calculateMarkAverageFromSubject(data['disciples'][0]['subjects'][0]['marks'])),tuple)
     def test_calculateMarkAverageFromSubject_result_is_not_range(self):
         import json
         with open('../data/test_data.txt') as json_file:
             data = json.load(json_file)
-            self.assertIsNot(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0])),range)
+            self.assertIsNot(type(self.temp.calculateMarkAverageFromSubject(data['disciples'][0]['subjects'][0]['marks'])),range)
     def test_calculateMarkAverageFromSubject_result_is_not_dict(self):
         import json
         with open('../data/test_data.txt') as json_file:
             data = json.load(json_file)
-            self.assertIsNot(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0])),dict)
+            self.assertIsNot(type(self.temp.calculateMarkAverageFromSubject(data['disciples'][0]['subjects'][0]['marks'])),dict)
     def test_calculateMarkAverageFromSubject_result_is_not_set(self):
         import json
         with open('../data/test_data.txt') as json_file:
             data = json.load(json_file)
-            self.assertIsNot(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0])),set)
+            self.assertIsNot(type(self.temp.calculateMarkAverageFromSubject(data['disciples'][0]['subjects'][0]['marks'])),set)
     def test_calculateMarkAverageFromSubject_result_is_not_frozenset(self):
         import json
         with open('../data/test_data.txt') as json_file:
             data = json.load(json_file)
-            self.assertIsNot(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0])),frozenset)
+            self.assertIsNot(type(self.temp.calculateMarkAverageFromSubject(data['disciples'][0]['subjects'][0]['marks'])),frozenset)
     def test_calculateMarkAverageFromSubject_result_is_not_bool(self):
         import json
         with open('../data/test_data.txt') as json_file:
             data = json.load(json_file)
-            self.assertIsNot(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0])),bool)
+            self.assertIsNot(type(self.temp.calculateMarkAverageFromSubject(data['disciples'][0]['subjects'][0]['marks'])),bool)
     def test_calculateMarkAverageFromSubject_result_is_not_bytes(self):
         import json
         with open('../data/test_data.txt') as json_file:
             data = json.load(json_file)
-            self.assertIsNot(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0])),bytes)
+            self.assertIsNot(type(self.temp.calculateMarkAverageFromSubject(data['disciples'][0]['subjects'][0]['marks'])),bytes)
     def test_calculateMarkAverageFromSubject_result_is_not_bytearray(self):
         import json
         with open('../data/test_data.txt') as json_file:
             data = json.load(json_file)
-            self.assertIsNot(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0])),bytearray)
+            self.assertIsNot(type(self.temp.calculateMarkAverageFromSubject(data['disciples'][0]['subjects'][0]['marks'])),bytearray)
     def test_calculateMarkAverageFromSubject_result_is_not_memoryview(self):
         import json
         with open('../data/test_data.txt') as json_file:
             data = json.load(json_file)
-            self.assertIsNot(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0])),memoryview)
+            self.assertIsNot(type(self.temp.calculateMarkAverageFromSubject(data['disciples'][0]['subjects'][0]['marks'])),memoryview)
 
     # mark average from subject=========================================================================================
     @patch('discipleClass.DiscipleClass.displayAllDisciples')
@@ -502,5 +502,5 @@ if __name__ == '__main__':
 #to check with ctrl + f
 #used assert types from unittest: 1. assertTrue, 2. assertFalse, 3. assertIsNot, 4. assertIsNotNone, 5. assertIs,
 # 6. assertNotEqual, 7. assertEqual
-#used assert types from pyhamcrest: 8. assert_that
+#used assert types from pyhamcrest: 8. assert_that(...,equal_to) 9. assert_that(...,is_not)
 
