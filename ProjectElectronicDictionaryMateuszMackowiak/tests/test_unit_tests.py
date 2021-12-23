@@ -163,6 +163,11 @@ class SubjectClassTest(unittest.TestCase):
         mockClass.editSubject("EN")
         self.assertTrue(mock_function.called)
 
+    @patch('subjectClass.SubjectClass.removeSubject')
+    def test_removeSubject_called(self, mock_function):
+        mockClass = SubjectClass()
+        mockClass.removeSubject("EN")
+        self.assertTrue(mock_function.called)
 
 
 
