@@ -94,6 +94,6 @@ class MenuClass:
             print("Wylogowales sie!")
         if(language=="EN"):
             print("You have logged out!")
-        return -1
+        return 0
 #import doctest
 #doctest.testmod(extraglobs={'c': MenuClass()})

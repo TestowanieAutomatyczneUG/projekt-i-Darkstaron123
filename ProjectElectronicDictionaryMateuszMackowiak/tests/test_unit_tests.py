@@ -143,12 +143,15 @@ class MenuClassTest(unittest.TestCase):
         self.assertRaises(Exception("Wrong language inputed."),self.temp.chooseLanguage("Uga Booga"))
 # choose language=======================================================================================================
 # log out===============================================================================================================
-    def test_log_out_return_minus_one(self):
-        self.assertEqual(self.temp.logOut("EN"),-1)
+    def test_log_out_return_zero(self):
+        self.assertEqual(self.temp.logOut("FR"),0)
     def test_log_out_is_int(self):
-        self.assertEqual(type(self.temp.logOut("EN")),int)
-    def test_choose_language_is_not_string(self):
-        self.assertNotEqual(type(self.temp.logOut("EN")),str)
+        self.assertEqual(type(self.temp.logOut("FR")),int)
+    def test_log_out_is_not_float(self):
+        self.assertNotEqual(type(self.temp.logOut("FR")),float)
+    def test_log_out_is_not_complex(self):
+        self.assertNotEqual(type(self.temp.logOut("FR")),complex)
+
 # log out===============================================================================================================
 class DiscipleClassTest(unittest.TestCase):
     def setUp(self):
