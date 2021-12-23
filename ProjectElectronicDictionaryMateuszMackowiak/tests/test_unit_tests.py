@@ -129,6 +129,13 @@ class DiscipleClassTest(unittest.TestCase):
         self.assertTrue(mock_function.called)
 
 
+    @patch('discipleClass.DiscipleClass.addDisciple')
+    def test_addDisciple_called(self, mock_function):
+        mockClass = DiscipleClass()
+        mockClass.addDisciple("EN")
+        self.assertTrue(mock_function.called)
+
+
 
 
 if __name__ == '__main__':
