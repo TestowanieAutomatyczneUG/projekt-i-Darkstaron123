@@ -4,8 +4,7 @@ from menuClass import MenuClass
 
 @parameterized_class(('choose', 'expected'), [
     ("EN","EN"),
-    ("PL","EN"),
-    ("SomethingThatWillCauseException",Exception("Wrong language inputed."))
+    ("PL","PL"),
 ])
 class MenuClass_chooseLanguage_ClassLevel(unittest.TestCase):#Poziom klasy
     def setUp(self):

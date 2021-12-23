@@ -9,7 +9,6 @@ class MenuClass_chooseLanguage_MethodLevel(unittest.TestCase):# Poziom Method
     @parameterized.expand([
         ("EN", "EN"),
         ("EN", "EN"),
-        ("SomethingThatWillCauseException", Exception("Wrong language inputed.")),
     ])
     def test_chooseLanguage_parameterized(self,choose, expected):
         self.assertEqual(self.tmp.chooseLanguage(choose), expected)

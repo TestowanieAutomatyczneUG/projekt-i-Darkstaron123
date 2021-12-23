@@ -65,7 +65,7 @@ class MenuClass:
                 print('You had a typo. Try again!')
                 return MenuClass.menu(language)
 
-    def chooseLanguage(choose=None):
+    def chooseLanguage(self,choose=None):
         if (choose == None):
             print('To choose english language, type in: EN')
             print('Zeby wybrac polski jezyk, wpisz: PL')
