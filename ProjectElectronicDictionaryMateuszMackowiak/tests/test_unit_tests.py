@@ -144,9 +144,11 @@ class MenuClassTest(unittest.TestCase):
 # choose language=======================================================================================================
 # log out===============================================================================================================
     def test_log_out_return_minus_one(self):
-        self.assertEqual(MenuClass.logOut("EN"),-1)
+        self.assertEqual(self.temp.logOut("EN"),-1)
     def test_log_out_is_int(self):
-        self.assertEqual(type(MenuClass.logOut("EN")),int)
+        self.assertEqual(type(self.temp.logOut("EN")),int)
+    def test_choose_language_is_not_string(self):
+        self.assertNotEqual(type(self.temp.logOut("EN")),str)
 # log out===============================================================================================================
 class DiscipleClassTest(unittest.TestCase):
     def setUp(self):
