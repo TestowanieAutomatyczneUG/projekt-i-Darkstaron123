@@ -62,14 +62,13 @@ class MenuClass:
                 return menu(language)
 
     def chooseLanguage(choose=None):
-        print('To choose english language, type in: EN')
-        print('Zeby wybrac polski jezyk, wpisz: PL')
-        if(choose==None):
-                choose = str(input())
-        language = choose
+        if (choose == None):
+            print('To choose english language, type in: EN')
+            print('Zeby wybrac polski jezyk, wpisz: PL')
+            choose = str(input())
         if(choose!="EN" and choose!="PL"):
             raise Exception("Wrong language inputed.")
-        return language
+        return choose
     def exportDatabaseToCSV(language):
         from menuClass import MenuClass
         import json
