@@ -171,11 +171,16 @@ class DiscipleClassTest(unittest.TestCase):
         with open('../data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertFalse(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0]))==bool)
-    def test_calculateMarkAverageFromDisciple_result_is_not_bool(self):
+    def test_calculateMarkAverageFromDisciple_result_is_not_bytes(self):
         import json
         with open('../data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertFalse(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0]))==bytes)
+    def test_calculateMarkAverageFromDisciple_result_is_not_bytearray(self):
+        import json
+        with open('../data/test_data.txt') as json_file:
+            data = json.load(json_file)
+            self.assertFalse(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0]))==bytearray)
 
 # mark average =============================================================================================
 
