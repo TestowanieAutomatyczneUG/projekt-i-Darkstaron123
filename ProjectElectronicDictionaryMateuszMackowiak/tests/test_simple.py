@@ -22,6 +22,9 @@ class MenuClassTest(unittest.TestCase):
             self.temp.chooseLanguage("PL")
         except ExceptionType:
             self.fail("MenuClass.chooseLanguage(\"PL\") didn't redirect to other function")
+    def exception_choose_language_other(self):
+        self.assertRaises(Exception("Wrong language inputed."),self.temp.chooseLanguage("Uga Booga"))
+
 
 
 if __name__ == '__main__':
