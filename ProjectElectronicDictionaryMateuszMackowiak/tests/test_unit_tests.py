@@ -42,9 +42,15 @@ class MenuClassTest(unittest.TestCase):
         self.assertTrue(mock_function.called)
     #4
     @patch('menuClass.MenuClass.importDatabaseFromCSV')
-    def test_menu_importDatabaseFromCSV(self, mock_function):
+    def test_menu_importDatabaseFromCSV_worked(self, mock_function):
         mockClass = MenuClass()
         mockClass.importDatabaseFromCSV("EN")
+        self.assertTrue(mock_function.called)
+
+    @patch('menuClass.MenuClass.menu')
+    def test_menu_importDatabaseFromCSV_called(self, mock_function):
+        mockClass = MenuClass()
+        mockClass.menu("EN", 4)
         self.assertTrue(mock_function.called)
     #5
     @patch('menuClass.MenuClass.exportDatabaseToCSV')
