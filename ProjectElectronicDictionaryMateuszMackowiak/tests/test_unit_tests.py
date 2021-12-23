@@ -168,6 +168,15 @@ class SubjectClassTest(unittest.TestCase):
         mockClass = SubjectClass()
         mockClass.removeSubject("EN")
         self.assertTrue(mock_function.called)
+class MarkClassTest(unittest.TestCase):
+    def setUp(self):
+        self.temp = MarkClass
+
+    @patch('markClass.MarkClass.addMark')
+    def test_addMark_called(self, mock_function):
+        mockClass = MarkClass()
+        mockClass.addMark("EN")
+        self.assertTrue(mock_function.called)
 
 
 
