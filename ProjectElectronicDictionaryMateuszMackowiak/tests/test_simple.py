@@ -28,6 +28,12 @@ class MenuClassTest(unittest.TestCase):
         mockClass = DiscipleClass()
         mockClass.addDisciple("EN")
         self.assertTrue(mock_function.called)
+    #2
+    @patch('discipleClass.DiscipleClass.editDisciple')
+    def test_menu_editDisciple(self, mock_function):
+        mockClass = DiscipleClass()
+        mockClass.editDisciple("EN")
+        self.assertTrue(mock_function.called)
     #6
     @patch('menuClass.MenuClass.menu')
     def test_menu_log_out(self, mock_function):

@@ -8,8 +8,10 @@ class MenuClass:
             print('1. Dodanie ucznia.')
             print('2. Edycja ucznia.')
             print('3. Usuniecie ucznia.')
-            print('4. Wyloguj sie.')
-            if(choose==None):
+            print('4. Importuj baze danych z pliku csv')
+            print('5. Eksortuj baze danych do pliku csv')
+            print('6. Wyloguj sie.')
+            if (choose == None):
                 choose = str(input())
             if (choose == "0"):
                 DiscipleClass.chooseAndDisplayDisciple(language)
@@ -20,10 +22,14 @@ class MenuClass:
             elif (choose == "3"):
                 DiscipleClass.removeDisciple(language)
             elif (choose == "4"):
+                MenuClass.importDatabaseFromCSV(language)
+            elif (choose == "5"):
+                MenuClass.exportDatabaseToCSV(language)
+            elif (choose == "6"):
                 print("Wylogowales sie!")
                 return 0
             else:
-                print('Miales literowke. Sproboj jeszcze raz!')
+                print('You had a typo. Try again!')
                 return menu(language)
         elif (language == 'EN'):
             print('Hello, you logged in electronic dictionary. Choose option, by typing in it\'s number:')
