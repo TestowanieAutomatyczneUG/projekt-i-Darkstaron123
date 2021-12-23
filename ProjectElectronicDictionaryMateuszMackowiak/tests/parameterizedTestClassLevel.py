@@ -11,5 +11,5 @@ class MenuClass_chooseLanguage_ClassLevel(unittest.TestCase):#Poziom klasy
     def setUp(self):
         self.tmp = MenuClass()
 
-    def test_class_parameterized(self):
+    def test_choose_language_parameterized(self):
         self.assertEqual(self.tmp.chooseLanguage(self.language), self.expected)
