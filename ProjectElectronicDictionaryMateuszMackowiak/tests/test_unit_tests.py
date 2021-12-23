@@ -235,6 +235,11 @@ class DiscipleClassTest(unittest.TestCase):
         with open('../data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertNotEqual(type(self.temp.countNumberOfNotices(data['disciples'][0])),bool)
+    def test_countNumberOfNotices_is_not_bytes(self):
+        import json
+        with open('../data/test_data.txt') as json_file:
+            data = json.load(json_file)
+            self.assertNotEqual(type(self.temp.countNumberOfNotices(data['disciples'][0])),bytes)
 # notices quantity from disciple========================================================================================
 # mark average from disciple============================================================================================
     def test_calculateMarkAverageFromDisciple_is_result_float(self):
