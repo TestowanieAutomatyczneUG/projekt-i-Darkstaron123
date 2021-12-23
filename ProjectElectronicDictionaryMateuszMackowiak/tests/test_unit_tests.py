@@ -147,6 +147,16 @@ class DiscipleClassTest(unittest.TestCase):
         mockClass.removeDisciple("EN")
         self.assertTrue(mock_function.called)
 
+class SubjectClassTest(unittest.TestCase):
+    def setUp(self):
+        self.temp = SubjectClass
+
+    @patch('subjectClass.SubjectClass.addSubject')
+    def test_addSubject_called(self, mock_function):
+        mockClass = SubjectClass()
+        mockClass.addSubject("EN")
+        self.assertTrue(mock_function.called)
+
 
 
 
