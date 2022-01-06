@@ -5,95 +5,95 @@
 import unittest
 from unittest.mock import patch
 
-from menuClass import MenuClass
-from discipleClass import DiscipleClass
-from subjectClass import SubjectClass
-from markClass import MarkClass
+from src.menuClass import MenuClass
+from src.discipleClass import DiscipleClass
+from src.subjectClass import SubjectClass
+from src.markClass import MarkClass
 
 
 class MenuClassTest(unittest.TestCase):
     def setUp(self):
         self.temp = MenuClass()
     #testing menu() function
-    @patch('menuClass.MenuClass.menu')
+    @patch('src.menuClass.MenuClass.menu')
     def test_menu_called(self, mock_function):
         mockClass = MenuClass()
         mockClass.menu("EN", 0)#i had to give in any choose so tests go on
         self.assertTrue(mock_function.called)
     #0
-    @patch('discipleClass.DiscipleClass.chooseAndDisplayDisciple')
+    @patch('src.discipleClass.DiscipleClass.chooseAndDisplayDisciple')
     def test_menu_chooseAndDisplayDisciple_worked(self, mock_function):
         mockClass = DiscipleClass()
         mockClass.chooseAndDisplayDisciple("EN")
         self.assertTrue(mock_function.called)
 
-    @patch('menuClass.MenuClass.menu')
+    @patch('src.menuClass.MenuClass.menu')
     def test_menu_chooseAndDisplayDisciple_called(self, mock_function):
         mockClass = MenuClass()
         mockClass.menu("EN", 0)
         self.assertTrue(mock_function.called)
     #1
-    @patch('discipleClass.DiscipleClass.addDisciple')
+    @patch('src.discipleClass.DiscipleClass.addDisciple')
     def test_menu_addDisciple_worked(self, mock_function):
         mockClass = DiscipleClass()
         mockClass.addDisciple("EN")
         self.assertTrue(mock_function.called)
 
-    @patch('menuClass.MenuClass.menu')
+    @patch('src.menuClass.MenuClass.menu')
     def test_menu_addDisciple_called(self, mock_function):
         mockClass = MenuClass()
         mockClass.menu("EN", 1)
         self.assertTrue(mock_function.called)
     #2
-    @patch('discipleClass.DiscipleClass.editDisciple')
+    @patch('src.discipleClass.DiscipleClass.editDisciple')
     def test_menu_editDisciple_worked(self, mock_function):
         mockClass = DiscipleClass()
         mockClass.editDisciple("EN")
         self.assertTrue(mock_function.called)
 
-    @patch('menuClass.MenuClass.menu')
+    @patch('src.menuClass.MenuClass.menu')
     def test_menu_editDisciple_called(self, mock_function):
         mockClass = MenuClass()
         mockClass.menu("EN", 2)
         self.assertTrue(mock_function.called)
     #3
-    @patch('discipleClass.DiscipleClass.removeDisciple')
+    @patch('src.discipleClass.DiscipleClass.removeDisciple')
     def test_menu_removeDisciple_worked(self, mock_function):
         mockClass = DiscipleClass()
         mockClass.removeDisciple("EN")
         self.assertTrue(mock_function.called)
 
-    @patch('menuClass.MenuClass.menu')
+    @patch('src.menuClass.MenuClass.menu')
     def test_menu_removeDisciple_called(self, mock_function):
         mockClass = MenuClass()
         mockClass.menu("EN", 3)
         self.assertTrue(mock_function.called)
     #4
-    @patch('menuClass.MenuClass.importDatabaseFromCSV')
+    @patch('src.menuClass.MenuClass.importDatabaseFromCSV')
     def test_menu_importDatabaseFromCSV_worked(self, mock_function):
         mockClass = MenuClass()
         mockClass.importDatabaseFromCSV("EN")
         self.assertTrue(mock_function.called)
 
-    @patch('menuClass.MenuClass.menu')
+    @patch('src.menuClass.MenuClass.menu')
     def test_menu_importDatabaseFromCSV_called(self, mock_function):
         mockClass = MenuClass()
         mockClass.menu("EN", 4)
         self.assertTrue(mock_function.called)
     #5
-    @patch('menuClass.MenuClass.exportDatabaseToCSV')
+    @patch('src.menuClass.MenuClass.exportDatabaseToCSV')
     def test_menu_exportDatabaseToCSV_worked(self, mock_function):
         mockClass = MenuClass()
         mockClass.exportDatabaseToCSV("EN")
         self.assertTrue(mock_function.called)
 
-    @patch('menuClass.MenuClass.menu')
+    @patch('src.menuClass.MenuClass.menu')
     def test_menu_exportDatabaseToCSV_called(self, mock_function):
         mockClass = MenuClass()
         mockClass.menu("EN",5)
         self.assertTrue(mock_function.called)
     #6
-    @patch('menuClass.MenuClass.menu')
+    @patch('src.menuClass.MenuClass.menu')
     def test_menu_log_out(self, mock_function):
         mockClass = MenuClass()
         mockClass.menu("EN","6")
@@ -181,164 +181,164 @@ class DiscipleClassTest(unittest.TestCase):
 # notices quantity from disciple========================================================================================
     def test_countNumberOfNotices_is_int(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertTrue(type(self.temp.countNumberOfNotices(data['disciples'][0])) == int)
     def test_countNumberOfNotices_is_not_string(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertNotEqual(type(self.temp.countNumberOfNotices(data['disciples'][0])),str)
     def test_countNumberOfNotices_is_not_float(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertNotEqual(type(self.temp.countNumberOfNotices(data['disciples'][0])),float)
     def test_countNumberOfNotices_is_not_complex(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertNotEqual(type(self.temp.countNumberOfNotices(data['disciples'][0])),complex)
     def test_countNumberOfNotices_is_not_list(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertNotEqual(type(self.temp.countNumberOfNotices(data['disciples'][0])),list)
     def test_countNumberOfNotices_is_not_tuple(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertNotEqual(type(self.temp.countNumberOfNotices(data['disciples'][0])),tuple)
     def test_countNumberOfNotices_is_not_range(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertNotEqual(type(self.temp.countNumberOfNotices(data['disciples'][0])),range)
     def test_countNumberOfNotices_is_not_dict(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertNotEqual(type(self.temp.countNumberOfNotices(data['disciples'][0])),dict)
     def test_countNumberOfNotices_is_not_set(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertNotEqual(type(self.temp.countNumberOfNotices(data['disciples'][0])),set)
     def test_countNumberOfNotices_is_not_frozenset(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertNotEqual(type(self.temp.countNumberOfNotices(data['disciples'][0])),frozenset)
     def test_countNumberOfNotices_is_not_bool(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertNotEqual(type(self.temp.countNumberOfNotices(data['disciples'][0])),bool)
     def test_countNumberOfNotices_is_not_bytes(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertNotEqual(type(self.temp.countNumberOfNotices(data['disciples'][0])),bytes)
     def test_countNumberOfNotices_is_not_bytearray(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertNotEqual(type(self.temp.countNumberOfNotices(data['disciples'][0])),bytearray)
     def test_countNumberOfNotices_is_not_memoryview(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertNotEqual(type(self.temp.countNumberOfNotices(data['disciples'][0])),memoryview)
 # notices quantity from disciple========================================================================================
 # mark average from disciple============================================================================================
     def test_calculateMarkAverageFromDisciple_is_result_float(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertTrue(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0]))==float)
     def test_calculateMarkAverageFromDisciple_result_is_not_string(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertFalse(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0]))==str)
     def test_calculateMarkAverageFromDisciple_result_is_not_int(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertFalse(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0]))==int)
     def test_calculateMarkAverageFromDisciple_result_is_not_list(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertFalse(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0]))==list)
     def test_calculateMarkAverageFromDisciple_result_is_not_dict(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertFalse(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0]))==dict)
     def test_calculateMarkAverageFromDisciple_result_is_not_tuple(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertFalse(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0]))==tuple)
     def test_calculateMarkAverageFromDisciple_result_is_not_range(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertFalse(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0]))==range)
     def test_calculateMarkAverageFromDisciple_result_is_not_complex(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertFalse(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0]))==complex)
     def test_calculateMarkAverageFromDisciple_result_is_not_set(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertFalse(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0]))==set)
     def test_calculateMarkAverageFromDisciple_result_is_not_frozenset(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertFalse(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0]))==frozenset)
     def test_calculateMarkAverageFromDisciple_result_is_not_bool(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertFalse(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0]))==bool)
     def test_calculateMarkAverageFromDisciple_result_is_not_bytes(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertFalse(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0]))==bytes)
     def test_calculateMarkAverageFromDisciple_result_is_not_bytearray(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertFalse(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0]))==bytearray)
     def test_calculateMarkAverageFromDisciple_result_is_not_memoryview(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertFalse(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0]))==memoryview)
     def test_calculateMarkAverageFromDisciple_result_is_not_none(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertIsNotNone(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0])))
     def test_calculateMarkAverageFromDisciple_result_is_not_empty_string(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertIsNot(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0])),'')
     def test_calculateMarkAverageFromDisciple_result_is_not_equal(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertNotEqual(type(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0])),'')
     def test_calculateMarkAverageFromDisciple_result_is_correct(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertEqual(self.temp.calculateMarkAverageFromDisciple(data['disciples'][0]),2.625)
 
@@ -346,102 +346,102 @@ class DiscipleClassTest(unittest.TestCase):
 # mark average from subject=============================================================================================
     def test_calculateMarkAverageFromSubject_is_result_float(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertTrue(type(self.temp.calculateMarkAverageFromSubject(data['disciples'][0]['subjects'][0]['marks']))==float)
     def test_calculateMarkAverageFromSubject_result_is_not_string(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertIsNot(type(self.temp.calculateMarkAverageFromSubject(data['disciples'][0]['subjects'][0]['marks'])),str)
     def test_calculateMarkAverageFromSubject_result_is_not_int(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertIsNot(type(self.temp.calculateMarkAverageFromSubject(data['disciples'][0]['subjects'][0]['marks'])),int)
     def test_calculateMarkAverageFromSubject_result_is_not_complex(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertIsNot(type(self.temp.calculateMarkAverageFromSubject(data['disciples'][0]['subjects'][0]['marks'])),complex)
     def test_calculateMarkAverageFromSubject_result_is_not_list(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertIsNot(type(self.temp.calculateMarkAverageFromSubject(data['disciples'][0]['subjects'][0]['marks'])),list)
     def test_calculateMarkAverageFromSubject_result_is_not_tuple(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertIsNot(type(self.temp.calculateMarkAverageFromSubject(data['disciples'][0]['subjects'][0]['marks'])),tuple)
     def test_calculateMarkAverageFromSubject_result_is_not_range(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertIsNot(type(self.temp.calculateMarkAverageFromSubject(data['disciples'][0]['subjects'][0]['marks'])),range)
     def test_calculateMarkAverageFromSubject_result_is_not_dict(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertIsNot(type(self.temp.calculateMarkAverageFromSubject(data['disciples'][0]['subjects'][0]['marks'])),dict)
     def test_calculateMarkAverageFromSubject_result_is_not_set(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertIsNot(type(self.temp.calculateMarkAverageFromSubject(data['disciples'][0]['subjects'][0]['marks'])),set)
     def test_calculateMarkAverageFromSubject_result_is_not_frozenset(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertIsNot(type(self.temp.calculateMarkAverageFromSubject(data['disciples'][0]['subjects'][0]['marks'])),frozenset)
     def test_calculateMarkAverageFromSubject_result_is_not_bool(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertIsNot(type(self.temp.calculateMarkAverageFromSubject(data['disciples'][0]['subjects'][0]['marks'])),bool)
     def test_calculateMarkAverageFromSubject_result_is_not_bytes(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertIsNot(type(self.temp.calculateMarkAverageFromSubject(data['disciples'][0]['subjects'][0]['marks'])),bytes)
     def test_calculateMarkAverageFromSubject_result_is_not_bytearray(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertIsNot(type(self.temp.calculateMarkAverageFromSubject(data['disciples'][0]['subjects'][0]['marks'])),bytearray)
     def test_calculateMarkAverageFromSubject_result_is_not_memoryview(self):
         import json
-        with open('../data/test_data.txt') as json_file:
+        with open('data/test_data.txt') as json_file:
             data = json.load(json_file)
             self.assertIsNot(type(self.temp.calculateMarkAverageFromSubject(data['disciples'][0]['subjects'][0]['marks'])),memoryview)
 
     # mark average from subject=========================================================================================
-    @patch('discipleClass.DiscipleClass.displayAllDisciples')
+    @patch('src.discipleClass.DiscipleClass.displayAllDisciples')
     def test_displayAllDisciples_called(self, mock_function):
         mockClass = DiscipleClass()
         mockClass.displayAllDisciples("EN")
         self.assertTrue(mock_function.called)
 
-    @patch('discipleClass.DiscipleClass.chooseAndDisplayDisciple')
+    @patch('src.discipleClass.DiscipleClass.chooseAndDisplayDisciple')
     def test_chooseAndDisplayDisciple_called(self, mock_function):
         mockClass = DiscipleClass()
         mockClass.chooseAndDisplayDisciple("EN")
         self.assertTrue(mock_function.called)
 
 
-    @patch('discipleClass.DiscipleClass.addDisciple')
+    @patch('src.discipleClass.DiscipleClass.addDisciple')
     def test_addDisciple_called(self, mock_function):
         mockClass = DiscipleClass()
         mockClass.addDisciple("EN")
         self.assertTrue(mock_function.called)
 
-    @patch('discipleClass.DiscipleClass.editDisciple')
+    @patch('src.discipleClass.DiscipleClass.editDisciple')
     def test_editDisciple_called(self, mock_function):
         mockClass = DiscipleClass()
         mockClass.editDisciple("EN")
         self.assertTrue(mock_function.called)
 
-    @patch('discipleClass.DiscipleClass.removeDisciple')
+    @patch('src.discipleClass.DiscipleClass.removeDisciple')
     def test_removeDisciple_called(self, mock_function):
         mockClass = DiscipleClass()
         mockClass.removeDisciple("EN")
@@ -451,19 +451,19 @@ class SubjectClassTest(unittest.TestCase):
     def setUp(self):
         self.temp = SubjectClass()
 
-    @patch('subjectClass.SubjectClass.addSubject')
+    @patch('src.subjectClass.SubjectClass.addSubject')
     def test_addSubject_called(self, mock_function):
         mockClass = SubjectClass()
         mockClass.addSubject("EN")
         self.assertTrue(mock_function.called)
 
-    @patch('subjectClass.SubjectClass.editSubject')
+    @patch('src.subjectClass.SubjectClass.editSubject')
     def test_editSubject_called(self, mock_function):
         mockClass = SubjectClass()
         mockClass.editSubject("EN")
         self.assertTrue(mock_function.called)
 
-    @patch('subjectClass.SubjectClass.removeSubject')
+    @patch('src.subjectClass.SubjectClass.removeSubject')
     def test_removeSubject_called(self, mock_function):
         mockClass = SubjectClass()
         mockClass.removeSubject("EN")
@@ -472,19 +472,19 @@ class MarkClassTest(unittest.TestCase):
     def setUp(self):
         self.temp = MarkClass()
 
-    @patch('markClass.MarkClass.addMark')
+    @patch('src.markClass.MarkClass.addMark')
     def test_addMark_called(self, mock_function):
         mockClass = MarkClass()
         mockClass.addMark("EN")
         self.assertTrue(mock_function.called)
 
-    @patch('markClass.MarkClass.editMark')
+    @patch('src.markClass.MarkClass.editMark')
     def test_editMark_called(self, mock_function):
         mockClass = MarkClass()
         mockClass.editMark("EN")
         self.assertTrue(mock_function.called)
 
-    @patch('markClass.MarkClass.removeMark')
+    @patch('src.markClass.MarkClass.removeMark')
     def test_removeMark_called(self, mock_function):
         mockClass = MarkClass()
         mockClass.removeMark("EN")

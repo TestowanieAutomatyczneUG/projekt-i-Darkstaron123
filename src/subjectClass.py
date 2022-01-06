@@ -6,9 +6,9 @@ class SubjectClass:
             print("You entered process of adding subject to disciple.")
             print("Type in new subject\'s name.")
             name = str(input())
-            with open('../../data/data.txt') as json_file:
+            with open('../data/data.txt') as json_file:
                 data = json.load(json_file)
-            with open('../../data/data.txt', 'w') as outfile:
+            with open('../data/data.txt', 'w') as outfile:
                 data['disciples'][int(discipleId)]['subjects'].append(
                     {
                         "id": str(len(data['disciples'][int(discipleId)]['subjects'])),
@@ -22,9 +22,9 @@ class SubjectClass:
             print("Weszles w proces dodawania przedmiotu do ucznia")
             print("Wpisz nazwe nowego przedmiotu.")
             name = str(input())
-            with open('../../data/data.txt') as json_file:
+            with open('../data/data.txt') as json_file:
                 data = json.load(json_file)
-            with open('../../data/data.txt', 'w') as outfile:
+            with open('../data/data.txt', 'w') as outfile:
                 data['disciples'][int(discipleId)]['subjects'].append(
                     {
                         "id": str(len(data['disciples'][int(discipleId)]['subjects'])),
@@ -41,7 +41,7 @@ class SubjectClass:
         from markClass import MarkClass
         if (language == "EN"):
             print("You entered process of editing subject of disciple.")
-            with open('../../data/data.txt') as json_file:
+            with open('../data/data.txt') as json_file:
                 data = json.load(json_file)
             print("List of subjects of this disciple.")
             for i in data['disciples'][int(discipleId)]['subjects']:
@@ -74,12 +74,12 @@ class SubjectClass:
             else:
                 print('You had a typo. Try again!')
                 return MarkClass().editSubject(language, discipleId)
-            with open('../../data/data.txt', 'w') as outfile:
+            with open('../data/data.txt', 'w') as outfile:
                 json.dump(data, outfile)
             return DiscipleClass().editDisciple(language)
         if (language == "PL"):
             print("Weszles w proces edytowania przedmiotu ucznia.")
-            with open('../../data/data.txt') as json_file:
+            with open('../data/data.txt') as json_file:
                 data = json.load(json_file)
             print("Lista przedmiotow wybranego ucznia.")
             for i in data['disciples'][int(discipleId)]['subjects']:
@@ -112,7 +112,7 @@ class SubjectClass:
             else:
                 print('Miales literowke. Sproboj ponownie!')
                 return MarkClass().editSubject(language, discipleId)
-            with open('../../data/data.txt', 'w') as outfile:
+            with open('../data/data.txt', 'w') as outfile:
                 json.dump(data, outfile)
             return DiscipleClass().editDisciple(language)
 
@@ -121,7 +121,7 @@ class SubjectClass:
         from discipleClass import DiscipleClass
         if (language == "EN"):
             print("You entered process of removing subject. Choose subject by typing in his Id from list below.")
-            with open('../../data/data.txt') as json_file:
+            with open('../data/data.txt') as json_file:
                 data = json.load(json_file)
                 for i in data['disciples'][int(discipleId)]['subjects']:
                     print("Id: " + i['id'] + " Name: " + i['name'])
@@ -129,7 +129,7 @@ class SubjectClass:
 
             try:
                 if (len(data['disciples'][int(discipleId)]['subjects']) > int(typedId) and int(typedId) >= 0):
-                    with open('../../data/data.txt', 'w') as outfile:
+                    with open('../data/data.txt', 'w') as outfile:
                         del data['disciples'][int(discipleId)]['subjects'][int(typedId)]
                         number = 0  # reassigning id after deletion
                         for i in data['disciples'][int(discipleId)]['subjects']:
@@ -143,7 +143,7 @@ class SubjectClass:
             return DiscipleClass().editDisciple(language)
         if (language == "PL"):
             print("Weszles w proces usuwania przedmiotu. Wybierz przedmiot poprzez wpisanie jego Id z listy ponizej,")
-            with open('../../data/data.txt') as json_file:
+            with open('../data/data.txt') as json_file:
                 data = json.load(json_file)
                 for i in data['disciples'][int(discipleId)]['subjects']:
                     print("Id: " + i['id'] + " Nazwa: " + i['name'])
@@ -151,7 +151,7 @@ class SubjectClass:
 
             try:
                 if (len(data['disciples'][int(discipleId)]['subjects']) > int(typedId) and int(typedId) >= 0):
-                    with open('../../data/data.txt', 'w') as outfile:
+                    with open('../data/data.txt', 'w') as outfile:
                         del data['disciples'][int(discipleId)]['subjects'][int(typedId)]
                         number = 0  # reassigning id after deletion
                         for i in data['disciples'][int(discipleId)]['subjects']:

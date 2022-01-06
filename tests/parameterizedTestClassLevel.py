@@ -1,6 +1,6 @@
 import unittest
 from parameterized import parameterized_class
-from menuClass import MenuClass
+from src.menuClass import MenuClass
 
 @parameterized_class(('choose', 'expected'), [
     ("EN","EN"),

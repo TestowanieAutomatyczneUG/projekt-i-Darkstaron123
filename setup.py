@@ -8,7 +8,7 @@ setup(
     author='Mateusz Maćkowiak',
     packages=find_packages(),
     python_requires='>=3.8, <4',
-    install_requires=['nose2','nosetests','unittests', 'assertpy', 'pytest', 'setuptools', 'parameterized', 'pyhamcrest'],
+    install_requires=['nose2','nosetests','unittest', 'assertpy', 'pytest', 'setuptools', 'parameterized', 'pyhamcrest'],
     extras_require={
         'test': ['coverage']
     },

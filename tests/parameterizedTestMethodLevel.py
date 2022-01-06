@@ -1,6 +1,6 @@
 import unittest
 from parameterized import parameterized
-from menuClass import MenuClass
+from src.menuClass import MenuClass
 
 class MenuClass_chooseLanguage_MethodLevel(unittest.TestCase):# Poziom Method
     def setUp(self):

@@ -3,7 +3,7 @@ class DiscipleClass:
         import json
         if (language == "EN"):
             try:
-                with open('../../data/data.txt') as json_file:
+                with open('../data/data.txt') as json_file:
                     data = json.load(json_file)
                     for i in data['disciples']:
                         print('Id: ' + i['id'], end=" ")
@@ -14,7 +14,7 @@ class DiscipleClass:
                 pass
         if (language == "PL"):
             try:
-                with open('../../data/data.txt') as json_file:
+                with open('../data/data.txt') as json_file:
                     data = json.load(json_file)
                     for i in data['disciples']:
                         print('Id: ' + i['id'], end=" ")
@@ -32,7 +32,7 @@ class DiscipleClass:
             print("Choose disciple by typing in his Id from list below.")
             DiscipleClass().displayAllDisciples(language)
             choose = str(input())
-            with open('../../data/data.txt') as json_file:
+            with open('../data/data.txt') as json_file:
                 data = json.load(json_file)
                 try:
                     data['disciples'][int(choose)]
@@ -67,7 +67,7 @@ class DiscipleClass:
             print("Wybierz ucznia poprzez wpisanie jego Id z listy ponizej.")
             DiscipleClass().displayAllDisciples(language)
             choose = str(input())
-            with open('../../data/data.txt') as json_file:
+            with open('../data/data.txt') as json_file:
                 data = json.load(json_file)
                 try:
                     data['disciples'][int(choose)]
@@ -107,9 +107,9 @@ class DiscipleClass:
             firstname = str(input())
             print("Type in his last name.")
             lastname = str(input())
-            with open('../../data/data.txt') as json_file:
+            with open('../data/data.txt') as json_file:
                 data = json.load(json_file)
-            with open('../../data/data.txt', 'w') as outfile:
+            with open('../data/data.txt', 'w') as outfile:
                 data['disciples'].append(
                     {
                         "id": str(len(data['disciples'])),
@@ -127,9 +127,9 @@ class DiscipleClass:
             firstname = str(input())
             print("Wpisz jego nazwisko.")
             lastname = str(input())
-            with open('../../data/data.txt') as json_file:
+            with open('../data/data.txt') as json_file:
                 data = json.load(json_file)
-            with open('../../data/data.txt', 'w') as outfile:
+            with open('../data/data.txt', 'w') as outfile:
                 data['disciples'].append(
                     {
                         "id": str(len(data['disciples'])),
@@ -150,7 +150,7 @@ class DiscipleClass:
                 print("You entered process of editing disciple. Choose disciple by typing in his Id from list below.")
                 DiscipleClass().displayAllDisciples(language)
                 choose = str(input())
-                with open('../../data/data.txt') as json_file:
+                with open('../data/data.txt') as json_file:
                     data = json.load(json_file)
                     try:
                         data['disciples'][int(choose)]
@@ -198,7 +198,7 @@ class DiscipleClass:
                         print('You had a typo. Try again!')
                         return DiscipleClass().editDisciple(language)
 
-                with open('../../data/data.txt', 'w') as outfile:
+                with open('../data/data.txt', 'w') as outfile:
                     data['disciples'][int(disciple['id'])] = disciple
                     json.dump(data, outfile)
                 return DiscipleClass().editDisciple(language)
@@ -206,7 +206,7 @@ class DiscipleClass:
                 print("Weszles w proces edytowania ucznia. Wybierz ucznia poprzez wpisanie jego Id z listy ponizej.")
                 DiscipleClass().displayAllDisciples(language)
                 choose = str(input())
-                with open('../../data/data.txt') as json_file:
+                with open('../data/data.txt') as json_file:
                     data = json.load(json_file)
                     try:
                         data['disciples']
@@ -254,7 +254,7 @@ class DiscipleClass:
                         print('Miales literowke. Sproboj ponownie!')
                         return DiscipleClass().editDisciple(language)
 
-                with open('../../data/data.txt', 'w') as outfile:
+                with open('../data/data.txt', 'w') as outfile:
                     data['disciples'][int(disciple['id'])] = disciple
                     json.dump(data, outfile)
                 return DiscipleClass().editDisciple(language)
@@ -270,10 +270,10 @@ class DiscipleClass:
             DiscipleClass().displayAllDisciples(language)
             choose = str(input())
             try:
-                with open('../../data/data.txt') as json_file:
+                with open('../data/data.txt') as json_file:
                     data = json.load(json_file)
                 if (len(data['disciples']) > int(choose) and int(choose) >= 0):
-                    with open('../../data/data.txt', 'w') as outfile:
+                    with open('../data/data.txt', 'w') as outfile:
                         del data['disciples'][int(choose)]
                         number = 0  # reassigning id after deletion
                         for i in data['disciples']:
@@ -290,10 +290,10 @@ class DiscipleClass:
             DiscipleClass().displayAllDisciples(language)
             choose=str(input())
             try:
-                with open('../../data/data.txt') as json_file:
+                with open('../data/data.txt') as json_file:
                     data = json.load(json_file)
                 if (len(data['disciples']) > int(choose) and int(choose) >= 0):
-                    with open('../../data/data.txt', 'w') as outfile:
+                    with open('../data/data.txt', 'w') as outfile:
                         del data['disciples'][int(choose)]
                         number = 0  # reassigning id after deletion
                         for i in data['disciples']:

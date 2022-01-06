@@ -1,0 +1,8 @@
+nose2
+nosetests
+unittests
+assertpy
+pytest
+setuptools
+parameterized
+pyhamcrest

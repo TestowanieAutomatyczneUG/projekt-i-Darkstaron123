@@ -77,9 +77,9 @@ class MenuClass:
         from menuClass import MenuClass
         import json
         try:
-            with open('../../data/data.txt') as json_file:
+            with open('../data/data.txt') as json_file:
                 data = json.load(json_file)
-            with open('../../data/data.csv', 'w') as outfile:
+            with open('../data/data.csv', 'w') as outfile:
                 json.dump(data, outfile)
         except:
             pass
@@ -88,9 +88,9 @@ class MenuClass:
         from menuClass import MenuClass
         import json
         try:
-            with open('../../data/data.csv') as json_file:
+            with open('../data/data.csv') as json_file:
                 data = json.load(json_file)
-            with open('../../data/dataCopy.csv', 'w') as outfile:
+            with open('../data/dataCopy.csv', 'w') as outfile:
                 json.dump(data, outfile)
         except:
             pass
@@ -99,9 +99,9 @@ class MenuClass:
         from menuClass import MenuClass
         import json
         try:
-            with open('../../data/data.csv') as json_file:
+            with open('../data/data.csv') as json_file:
                 data = json.load(json_file)
-            with open('../../data/data.txt', 'w') as outfile:
+            with open('../data/data.txt', 'w') as outfile:
                 json.dump(data, outfile)
         except:
             pass
